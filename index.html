@@ -2,501 +2,406 @@
 <!doctype html>
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Rajendra Sattu | Naturally Processed Heritage</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              background: "#fcf9f4",
-              "on-secondary-fixed": "#131f00",
-              "surface-container-high": "#ebe8e3",
-              "on-background": "#1c1c19",
-              "tertiary-fixed-dim": "#e5beb5",
-              "surface-container": "#f0ede8",
-              "on-error-container": "#93000a",
-              "primary-container": "#d5a634",
-              "on-secondary-container": "#58683a",
-              "on-tertiary-fixed": "#2b1611",
-              tertiary: "#755750",
-              "surface-dim": "#dcdad5",
-              "on-tertiary-fixed-variant": "#5c403a",
-              error: "#ba1a1a",
-              "surface-bright": "#fcf9f4",
-              secondary: "#546436",
-              "surface-container-lowest": "#ffffff",
-              "primary-fixed": "#ffdf9e",
-              "on-primary-fixed-variant": "#5b4300",
-              "on-primary": "#ffffff",
-              "inverse-on-surface": "#f3f0eb",
-              "on-surface": "#1c1c19",
-              "surface-tint": "#795900",
-              "on-primary-fixed": "#261a00",
-              "on-tertiary-container": "#553a34",
-              primary: "#795900",
-              "secondary-fixed-dim": "#bbcd96",
-              "surface-container-low": "#f6f3ee",
-              "on-surface-variant": "#50453b",
-              "on-primary-container": "#533d00",
-              "secondary-fixed": "#d7eab0",
-              "outline-variant": "#d4c4b7",
-              "surface-variant": "#e5e2dd",
-              "inverse-surface": "#31302d",
-              "inverse-primary": "#f1bf4c",
-              "primary-fixed-dim": "#f1bf4c",
-              "tertiary-container": "#c9a49c",
-              outline: "#82756a",
-              "tertiary-fixed": "#ffdad2",
-              "on-error": "#ffffff",
-              "error-container": "#ffdad6",
-              "on-tertiary": "#ffffff",
-              "secondary-container": "#d4e7ad",
-              "surface-container-highest": "#e5e2dd",
-              "on-secondary-fixed-variant": "#3d4c20",
-              "on-secondary": "#ffffff",
-              surface: "#fcf9f4",
-            },
-            fontFamily: {
-              headline: ["Noto Serif"],
-              body: ["Plus Jakarta Sans"],
-              label: ["Plus Jakarta Sans"],
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Rajendra Sattu | Naturally Processed Heritage</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "#fcf9f4",
+            "on-secondary-fixed": "#131f00",
+            "surface-container-high": "#ebe8e3",
+            "on-background": "#1c1c19",
+            "tertiary-fixed-dim": "#e5beb5",
+            "surface-container": "#f0ede8",
+            "on-error-container": "#93000a",
+            "primary-container": "#d5a634",
+            "on-secondary-container": "#58683a",
+            "on-tertiary-fixed": "#2b1611",
+            tertiary: "#755750",
+            "surface-dim": "#dcdad5",
+            "on-tertiary-fixed-variant": "#5c403a",
+            error: "#ba1a1a",
+            "surface-bright": "#fcf9f4",
+            secondary: "#546436",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#ffdf9e",
+            "on-primary-fixed-variant": "#5b4300",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f3f0eb",
+            "on-surface": "#1c1c19",
+            "surface-tint": "#795900",
+            "on-primary-fixed": "#261a00",
+            "on-tertiary-container": "#553a34",
+            primary: "#795900",
+            "secondary-fixed-dim": "#bbcd96",
+            "surface-container-low": "#f6f3ee",
+            "on-surface-variant": "#50453b",
+            "on-primary-container": "#533d00",
+            "secondary-fixed": "#d7eab0",
+            "outline-variant": "#d4c4b7",
+            "surface-variant": "#e5e2dd",
+            "inverse-surface": "#31302d",
+            "inverse-primary": "#f1bf4c",
+            "primary-fixed-dim": "#f1bf4c",
+            "tertiary-container": "#c9a49c",
+            outline: "#82756a",
+            "tertiary-fixed": "#ffdad2",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#d4e7ad",
+            "surface-container-highest": "#e5e2dd",
+            "on-secondary-fixed-variant": "#3d4c20",
+            "on-secondary": "#ffffff",
+            surface: "#fcf9f4",
+          },
+          fontFamily: {
+            headline: ["Noto Serif"],
+            body: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
           },
         },
-      };
-    </script>
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-      .editorial-shadow {
-        box-shadow: 0 8px 24px rgba(80, 69, 59, 0.1);
-      }
-      .hero-gradient {
-        background: linear-gradient(135deg, #795900 0%, #d5a634 100%);
-      }
-    </style>
-  </head>
-  <body
-    class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container"
-  >
-    <!-- TopNavBar -->
+      },
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+    }
 
-    <div id="navbar"></div>
-   
-    <main class="pt-24 overflow-hidden">
-      <!-- Hero Section: Editorial Style -->
-      <section
-        class="relative px-8 py-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12"
-      >
-        <div class="flex-1 z-10">
-          <span
-            class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4 block"
-            >Est. 1974</span
-          >
-          <h1
-            class="font-headline text-5xl md:text-7xl font-extrabold text-on-background leading-[1.1] mb-8"
-          >
-            The Soul of <br /><span class="text-primary">Ancient Grains</span>
-          </h1>
-          <p
-            class="text-on-surface-variant text-lg md:text-xl max-w-md mb-10 leading-relaxed"
-          >
-            Authentic, stone-ground flours crafted with the same natural process
-            passed down through three generations.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <button
-              class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold hero-gradient editorial-shadow"
-            >
-              Explore Collection
-            </button>
-            <button
-              class="text-primary font-bold px-8 py-4 underline decoration-primary-container underline-offset-8"
-            >
-              Discover Our Heritage
-            </button>
-          </div>
-        </div>
-        <div class="flex-1 relative">
-          <div
-            class="w-full aspect-square bg-surface-container rounded-xl overflow-hidden relative rotate-3"
-          >
-            <img
-              class="w-full h-full object-cover opacity-90"
-              data-alt="Rustic display of grains and sattu flour"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnIlE5Fg8f-B9tk_GwUYA0IgfeZp-hJY8cvyXedm2kYBipxml_diGOtxp0mpffuXu6EOOYyUSs3JlWwlwkERgLOM5IiUyN77_NV_3gBprJJjrtBj5ANZD2dhH1UUEYw2M3483PqjcdxxuA49BOywvCfAbgZisj7006YeELTXEQ3oLcY7B3gHGiFm_WROjjXzpjz3smxLhIkjfwRHqR6kV6dDdM24Mg9EsmMPnLdQ6zmfSCcaFlDkeUfCwObzV5bAD7Goy2_QZaVZ0"
-            />
-          </div>
-          <!-- Floating Asymmetric Element -->
-          <div
-            class="absolute -bottom-10 -left-10 bg-secondary-container p-8 rounded-xl editorial-shadow -rotate-6 hidden md:block"
-          >
-            <span
-              class="material-symbols-outlined text-4xl text-on-secondary-container"
-              style="font-variation-settings: &quot;FILL&quot; 1"
-              >eco</span
-            >
-            <p class="font-headline text-on-secondary-container text-xl mt-4">
-              100% Stone Ground
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- Our Process Snippet -->
-      <section class="bg-surface-container-low py-32 mt-20">
-        <div
-          class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-24 items-center"
-        >
-          <div class="order-2 md:order-1 grid grid-cols-2 gap-4">
-            <div class="space-y-4 pt-12">
-              <div class="bg-white p-2 rounded-xl editorial-shadow">
-                <img
-                  class="rounded-lg w-full h-48 object-cover"
-                  data-alt="Close up of raw chickpeas"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQzGpwBEIzTgR2Ut_zKpc2Guk9sulqaFLHoh6h-aGMF5Rw1DQR4o9iwt9FPrD9Nzy2slIyMpTWu-EhIEHXr4eRHQFhyQVvNqgym4tOBKePRvT-SCFOdYrhQ6QYoGWTcfC_nCXNWcg99NFnOBdQP0_s2RRFKxK9C9hPl0A0JAwF7zrzT3r-IXvA9TdyPbX-ItZw2x01o_lgI2Bmvog8XtHAhBsRDVBa_12oZMVdg4vCLIskhz8Kj86MNvN0jZxte5v_C0Ois3xHnRE"
-                />
-              </div>
-              <div class="bg-white p-2 rounded-xl editorial-shadow">
-                <img
-                  class="rounded-lg w-full h-64 object-cover"
-                  data-alt="Traditional stone mill grinding flour"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqdhRMjJg9N43nMy_JEhBZhcy838c_sACdAQY5oIxzktxnCzFYnHsP0GI1-CHlZghqzmR1ysMV1MEtx_-leA_tzq0vRQ4u8wp8aO7HKvYA4lWqcL718Z1kM2wl4UgT59FSq_ytH1_hlDl6rwtQBvZMn_kLTYRFVW9ufU5Zm6L9t1ln9pRb2KrQAOOK8kXv3fOthRnaSV1cR0dOjuNoW6TUa8ytBgBlCfSj5JxnVKDuTbHJFCGznIWt-lWDLz1pTyWky-zZMJLCW0Q"
-                />
-              </div>
-            </div>
-            <div class="space-y-4">
-              <div class="bg-white p-2 rounded-xl editorial-shadow">
-                <img
-                  class="rounded-lg w-full h-64 object-cover"
-                  data-alt="Sun drying of roasted grains"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD2LDsKl3s1C6fOskYDrd5U-R9FCJbZ_ESyX7NSh6ixKJwsHEkWB4QRilargLmfvqlyopKygrXn9yFehMm68gw-9WVx1dKGFes1C46VvqJDd7jp4t36k-HIut3DU7MgRJHUGNPux9Mwo5wa7B5hB9ZM0ndtxFyhSnhyGVd_BebCepFQFpcIlfFZLdj97ETwIrdCB9dPHxgrEi6TqQI9Dpf6dxENVOB8rFlQzGyyA_IlMX-vCRqs6wUUsy46efmlW-22jPcRYv83D4"
-                />
-              </div>
-              <div class="bg-white p-2 rounded-xl editorial-shadow">
-                <img
-                  class="rounded-lg w-full h-48 object-cover"
-                  data-alt="Freshly packed flour bags"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzcQv2OBZ7LNv-2m4INJWOiadk5mKoRNkCbMb88vS4QPlOcOrDg33UxDHqegsP3V6sG4Chbmkc7Eb6FnfF3ZS1B0_DkZAbg_QA3TajJDLUL12Z_vZBTTTC8GgB9SolHWjnhtce8_pV0IRX2TgLOQc4G3tfBK9UrgqGzBLYWC6UaYjwwNhuTutS43Ww9iN3i1F4YCcWIle6V5y4eiLujfJoLjGT-7TJRAtG8AJvYywSo4QdZh3CeeieEUkG-ObARbvbD3MOR4gGcpQ"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="order-1 md:order-2">
-            <h2 class="font-headline text-4xl font-bold mb-6 text-primary">
-              Natural Process. Heritage Taste.
-            </h2>
-            <p class="text-on-surface-variant mb-8 leading-relaxed text-lg">
-              Unlike modern high-speed mills that heat and degrade nutrients, we
-              use slow-turning stones and sun-drying techniques. This preserves
-              the essential oils, aroma, and the soul of the grain.
-            </p>
-            <ul class="space-y-6">
-              <li class="flex items-start gap-4">
-                <div
-                  class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0"
-                >
-                  <span
-                    class="material-symbols-outlined text-on-primary-fixed text-sm"
-                    >sunny</span
-                  >
-                </div>
-                <div>
-                  <h4 class="font-bold">Sun-Roasted Grains</h4>
-                  <p class="text-sm text-on-surface-variant">
-                    Naturally dried to perfection before processing.
-                  </p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div
-                  class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0"
-                >
-                  <span
-                    class="material-symbols-outlined text-on-secondary-container text-sm"
-                    >filter_vintage</span
-                  >
-                </div>
-                <div>
-                  <h4 class="font-bold">Cold Pressed Grinding</h4>
-                  <p class="text-sm text-on-surface-variant">
-                    Stone mills maintain low temperatures to keep nutrients
-                    intact.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <!-- Featured Products -->
-      <section class="py-32 max-w-7xl mx-auto px-8">
-        <div
-          class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
-        >
-          <div class="max-w-xl">
-            <h2 class="font-headline text-4xl font-bold mb-4">
-              Crafted for Quality
-            </h2>
-            <p class="text-on-surface-variant">
-              Experience the richness of Bihar's finest harvests, processed
-              without additives or preservatives.
-            </p>
-          </div>
-          <button class="text-primary font-bold flex items-center gap-2 group">
-            View Entire Pantry
-            <span
-              class="material-symbols-outlined transition-transform group-hover:translate-x-1"
-              >arrow_forward</span
-            >
+    .editorial-shadow {
+      box-shadow: 0 8px 24px rgba(80, 69, 59, 0.1);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #795900 0%, #d5a634 100%);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+  <!-- TopNavBar -->
+
+  <!-- <div id="navbar"></div> -->
+  <!-- TopNavBar -->
+  <nav class="fixed top-0 w-full z-50 bg-[#fcf9f4]/80 backdrop-blur-xl border-b border-[#d4c4b7]/15">
+    <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+      <div class="text-2xl font-serif font-bold text-[#795900]">
+        Rajendra Sattu
+      </div>
+      <div class="hidden md:flex items-center space-x-8 font-serif text-lg tracking-tight">
+        <a class="text-[#795900] font-bold border-b-2 border-[#795900] pb-1" href="Home.html">Home</a>
+        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="product.html">Products</a>
+        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="ourProcess.html">Our
+          Process</a>
+        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="story.html">Our Story</a>
+        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="contact.html  ">Contact</a>
+      </div>
+      <!-- <div class="flex items-center space-x-6">
+      <button class="material-symbols-outlined text-on-surface-variant">
+        search
+      </button>
+      <button
+        class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold hero-gradient active:scale-95 transition-all duration-200">
+        Shop Now
+      </button>
+    </div> -->
+    </div>
+  </nav>
+
+  <main class="pt-24 overflow-hidden">
+    <!-- Hero Section: Editorial Style -->
+    <section class="relative px-8 py-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div class="flex-1 z-10">
+        <span class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4 block">Est. 1974</span>
+        <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-background leading-[1.1] mb-8">
+          The Soul of <br /><span class="text-primary">Ancient Grains</span>
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl max-w-md mb-10 leading-relaxed">
+          Authentic, stone-ground flours crafted with the same natural process
+          passed down through three generations.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold hero-gradient editorial-shadow">
+            Explore Collection
+          </button>
+          <button class="text-primary font-bold px-8 py-4 underline decoration-primary-container underline-offset-8">
+            Discover Our Heritage
           </button>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Product Card: Sattu -->
-          <div
-            class="bg-surface-container-lowest rounded-xl p-6 group editorial-shadow border border-outline-variant/15"
-          >
-            <div
-              class="aspect-[4/5] bg-surface-variant rounded-lg overflow-hidden mb-6 relative"
-            >
-              <img
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                data-alt="Premium roasted gram flour sattu pack"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr9gv__kImo1eatK3OTHtviPfospwpUxCu6SreEQq2k5iCbqNUDc1dFJ5CCWrf53m2TZMkUJi3reos5YlL6J6ap0ezL3Z0nPYs2TPkiitxWQcx3Q1AIUYLbZ1lwtw4g-7cPM7PrZCbVHBEmDoP2DOWu2DbCOqE6DHpr8R5DT8LWHZ5pnnaOusAicsVznZmer5Kpa8ajLUsMgpK49CZ7rBvUdAHXFvql5_g8RfVDCHILjQUwvb_Neyoq5aL9ReimnztDVEyjddVJ20"
-              />
-              <div class="absolute top-4 left-4">
-                <span
-                  class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
-                  >Bestseller</span
-                >
-              </div>
-            </div>
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-headline text-2xl font-bold">Chana Sattu</h3>
-              <span class="text-primary font-bold text-xl">₹120</span>
-            </div>
-            <p class="text-on-surface-variant text-sm mb-6">
-              Roasted Black Chickpea Flour. The high-protein superfood of the
-              East.
-            </p>
-            <button
-              class="w-full py-3 rounded-lg border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-colors"
-            >
-              Add to Bag
-            </button>
-          </div>
-          <!-- Product Card: Besan -->
-          <div
-            class="bg-surface-container-lowest rounded-xl p-6 group editorial-shadow border border-outline-variant/15"
-          >
-            <div
-              class="aspect-[4/5] bg-surface-variant rounded-lg overflow-hidden mb-6 relative"
-            >
-              <img
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                data-alt="Fine yellow besan flour in wooden bowl"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr5YaYp80CwjxYjpJ0yzIWWgCw-p79NiLzv-F2kcy8DE7zLL-bQ3JqUWjYJ9efQzVM4nuo3wcAWrn4fgBqbbrKsEiUd6gqR-i5VwWfWxAJKRoqW1qXyG-lErrSbRhee4YMnH-GDmOglQ5RwHUlx2naZE-Mg5gHSboL548MKnoRaAmaV2Sid5dBOqQfNeke1vtxNYKgBlz707EmCxpMAXesXGwfAe2E8ke7KPxYgnASUd0fqtAcXir4ZJ_cFD0_dxcAOrl6pXtKTig"
-              />
-            </div>
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-headline text-2xl font-bold">Pure Besan</h3>
-              <span class="text-primary font-bold text-xl">₹95</span>
-            </div>
-            <p class="text-on-surface-variant text-sm mb-6">
-              Fine-ground gram flour. Perfectly textured for laddoos and
-              pakoras.
-            </p>
-            <button
-              class="w-full py-3 rounded-lg border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-colors"
-            >
-              Add to Bag
-            </button>
-          </div>
-          <!-- Product Card: Atta -->
-          <div
-            class="bg-surface-container-lowest rounded-xl p-6 group editorial-shadow border border-outline-variant/15"
-          >
-            <div
-              class="aspect-[4/5] bg-surface-variant rounded-lg overflow-hidden mb-6 relative"
-            >
-              <img
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                data-alt="Whole wheat atta flour with grain ears"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3CvXjZ7cTkoS7rAmQyqaIgBJeNghjhe-nyRvi2e5QKsXs6oGuHOsO8LkvuPgm2PXY0ERVIJ6EcshtgPH1sFKr23ctYi8FTjL99453H4U9wYqCD7RgJq6LaaireRPmCl7_5C0f1ruOT1YAX8I1U8aTOXzF6G2eoDCBeFONibfRwHv32UJuQI1MnnUwVqk3Mvk3BJD-D92kymfuLW8kbA-lDh3HFlVf8E2YHBMQuIGqGJfZkH_kZZmnR5SvMmXCEwFjuxi0BBUbYrk"
-              />
-              <div class="absolute top-4 left-4">
-                <span
-                  class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
-                  >Heritage Grain</span
-                >
-              </div>
-            </div>
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-headline text-2xl font-bold">Sharbati Atta</h3>
-              <span class="text-primary font-bold text-xl">₹210</span>
-            </div>
-            <p class="text-on-surface-variant text-sm mb-6">
-              Stone-ground whole wheat. Higher fiber, softer rotis, richer
-              taste.
-            </p>
-            <button
-              class="w-full py-3 rounded-lg border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-colors"
-            >
-              Add to Bag
-            </button>
-          </div>
+      </div>
+      <div class="flex-1 relative">
+        <div class="w-full aspect-square bg-surface-container rounded-xl overflow-hidden relative rotate-3">
+          <img class="w-full h-full object-cover opacity-90" data-alt="Rustic display of grains and sattu flour"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnIlE5Fg8f-B9tk_GwUYA0IgfeZp-hJY8cvyXedm2kYBipxml_diGOtxp0mpffuXu6EOOYyUSs3JlWwlwkERgLOM5IiUyN77_NV_3gBprJJjrtBj5ANZD2dhH1UUEYw2M3483PqjcdxxuA49BOywvCfAbgZisj7006YeELTXEQ3oLcY7B3gHGiFm_WROjjXzpjz3smxLhIkjfwRHqR6kV6dDdM24Mg9EsmMPnLdQ6zmfSCcaFlDkeUfCwObzV5bAD7Goy2_QZaVZ0" />
         </div>
-      </section>
-      <!-- Heritage Quote -->
-      <section class="max-w-4xl mx-auto px-8 py-20 text-center">
-        <span
-          class="material-symbols-outlined text-primary-container text-6xl mb-6"
-          style="font-variation-settings: &quot;FILL&quot; 1"
-          >format_quote</span
-        >
-        <blockquote
-          class="font-headline text-3xl italic text-on-background leading-snug"
-        >
-          "Our philosophy is simple: we don't interfere with what nature has
-          already perfected. We only help bring it to your table."
-        </blockquote>
-        <p
-          class="mt-8 font-label text-sm uppercase tracking-widest text-secondary font-bold"
-        >
-          — Rajendra Prasad, Founder
-        </p>
-      </section>
-    </main>
-    <!-- Footer -->
-    <footer class="w-full mt-20 bg-[#f0ede8] dark:bg-stone-950">
-      <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-8 px-12 py-16 w-full max-w-7xl mx-auto"
-      >
-        <div>
-          <div class="font-serif text-xl text-[#795900] mb-6">
-            Rajendra Sattu
-          </div>
-          <p
-            class="text-[#50453b] dark:text-stone-500 mb-6 max-w-xs leading-relaxed"
-          >
-            Bringing the authentic taste of rural heritage to modern kitchens
-            since 1974.
+        <!-- Floating Asymmetric Element -->
+        <div
+          class="absolute -bottom-10 -left-10 bg-secondary-container p-8 rounded-xl editorial-shadow -rotate-6 hidden md:block">
+          <span class="material-symbols-outlined text-4xl text-on-secondary-container"
+            style="font-variation-settings: &quot;FILL&quot; 1">eco</span>
+          <p class="font-headline text-on-secondary-container text-xl mt-4">
+            100% Stone Ground
           </p>
         </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="flex flex-col space-y-4">
-            <span
-              class="font-sans text-sm tracking-wide uppercase text-[#795900] font-bold"
-              >Explore</span
-            >
-            <a
-              class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors"
-              href="#"
-              >Instagram</a
-            >
-            <a
-              class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors"
-              href="#"
-              >Facebook</a
-            >
-            <a
-              class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors"
-              href="#"
-              >LinkedIn</a
-            >
+      </div>
+    </section>
+    <!-- Our Process Snippet -->
+    <section class="bg-surface-container-low py-32 mt-20">
+      <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-24 items-center">
+        <div class="order-2 md:order-1 grid grid-cols-2 gap-4">
+          <div class="space-y-4 pt-12">
+            <div class="bg-white p-2 rounded-xl editorial-shadow">
+              <img class="rounded-lg w-full h-48 object-cover" data-alt="Close up of raw chickpeas"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQzGpwBEIzTgR2Ut_zKpc2Guk9sulqaFLHoh6h-aGMF5Rw1DQR4o9iwt9FPrD9Nzy2slIyMpTWu-EhIEHXr4eRHQFhyQVvNqgym4tOBKePRvT-SCFOdYrhQ6QYoGWTcfC_nCXNWcg99NFnOBdQP0_s2RRFKxK9C9hPl0A0JAwF7zrzT3r-IXvA9TdyPbX-ItZw2x01o_lgI2Bmvog8XtHAhBsRDVBa_12oZMVdg4vCLIskhz8Kj86MNvN0jZxte5v_C0Ois3xHnRE" />
+            </div>
+            <div class="bg-white p-2 rounded-xl editorial-shadow">
+              <img class="rounded-lg w-full h-64 object-cover" data-alt="Traditional stone mill grinding flour"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqdhRMjJg9N43nMy_JEhBZhcy838c_sACdAQY5oIxzktxnCzFYnHsP0GI1-CHlZghqzmR1ysMV1MEtx_-leA_tzq0vRQ4u8wp8aO7HKvYA4lWqcL718Z1kM2wl4UgT59FSq_ytH1_hlDl6rwtQBvZMn_kLTYRFVW9ufU5Zm6L9t1ln9pRb2KrQAOOK8kXv3fOthRnaSV1cR0dOjuNoW6TUa8ytBgBlCfSj5JxnVKDuTbHJFCGznIWt-lWDLz1pTyWky-zZMJLCW0Q" />
+            </div>
           </div>
-          <div class="flex flex-col space-y-4">
-            <span
-              class="font-sans text-sm tracking-wide uppercase text-[#795900] font-bold"
-              >Legal</span
-            >
-            <a
-              class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors"
-              href="#"
-              >Privacy Policy</a
-            >
-            <a
-              class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors"
-              href="#"
-              >Terms of Service</a
-            >
+          <div class="space-y-4">
+            <div class="bg-white p-2 rounded-xl editorial-shadow">
+              <img class="rounded-lg w-full h-64 object-cover" data-alt="Sun drying of roasted grains"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD2LDsKl3s1C6fOskYDrd5U-R9FCJbZ_ESyX7NSh6ixKJwsHEkWB4QRilargLmfvqlyopKygrXn9yFehMm68gw-9WVx1dKGFes1C46VvqJDd7jp4t36k-HIut3DU7MgRJHUGNPux9Mwo5wa7B5hB9ZM0ndtxFyhSnhyGVd_BebCepFQFpcIlfFZLdj97ETwIrdCB9dPHxgrEi6TqQI9Dpf6dxENVOB8rFlQzGyyA_IlMX-vCRqs6wUUsy46efmlW-22jPcRYv83D4" />
+            </div>
+            <div class="bg-white p-2 rounded-xl editorial-shadow">
+              <img class="rounded-lg w-full h-48 object-cover" data-alt="Freshly packed flour bags"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzcQv2OBZ7LNv-2m4INJWOiadk5mKoRNkCbMb88vS4QPlOcOrDg33UxDHqegsP3V6sG4Chbmkc7Eb6FnfF3ZS1B0_DkZAbg_QA3TajJDLUL12Z_vZBTTTC8GgB9SolHWjnhtce8_pV0IRX2TgLOQc4G3tfBK9UrgqGzBLYWC6UaYjwwNhuTutS43Ww9iN3i1F4YCcWIle6V5y4eiLujfJoLjGT-7TJRAtG8AJvYywSo4QdZh3CeeieEUkG-ObARbvbD3MOR4gGcpQ" />
+            </div>
           </div>
         </div>
-        <div class="flex flex-col space-y-6">
-          <span
-            class="font-sans text-sm tracking-wide uppercase text-[#795900] font-bold"
-            >Join Our Journal</span
-          >
-          <div class="relative">
-            <input
-              class="w-full bg-transparent border-b-2 border-[#d4c4b7] py-2 focus:outline-none focus:border-[#795900] transition-colors placeholder:text-[#50453b]/50"
-              placeholder="Email Address"
-              type="email"
-            />
-            <button
-              class="absolute right-0 top-1/2 -translate-y-1/2 material-symbols-outlined text-[#795900]"
-            >
-              arrow_forward
-            </button>
-          </div>
+        <div class="order-1 md:order-2">
+          <h2 class="font-headline text-4xl font-bold mb-6 text-primary">
+            Natural Process. Heritage Taste.
+          </h2>
+          <p class="text-on-surface-variant mb-8 leading-relaxed text-lg">
+            Unlike modern high-speed mills that heat and degrade nutrients, we
+            use slow-turning stones and sun-drying techniques. This preserves
+            the essential oils, aroma, and the soul of the grain.
+          </p>
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-on-primary-fixed text-sm">sunny</span>
+              </div>
+              <div>
+                <h4 class="font-bold">Sun-Roasted Grains</h4>
+                <p class="text-sm text-on-surface-variant">
+                  Naturally dried to perfection before processing.
+                </p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-on-secondary-container text-sm">filter_vintage</span>
+              </div>
+              <div>
+                <h4 class="font-bold">Cold Pressed Grinding</h4>
+                <p class="text-sm text-on-surface-variant">
+                  Stone mills maintain low temperatures to keep nutrients
+                  intact.
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-      <div
-        class="px-12 pb-12 w-full max-w-7xl mx-auto border-t border-[#d4c4b7]/15 pt-8"
-      >
-        <p
-          class="font-sans text-sm tracking-wide uppercase text-[#50453b] dark:text-stone-500 text-center md:text-left"
-        >
-          © 2024 Rajendra Sattu. Naturally Processed Heritage.
+    </section>
+    <!-- Featured Products -->
+    <section class="py-32 max-w-7xl mx-auto px-8">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div class="max-w-xl">
+          <h2 class="font-headline text-4xl font-bold mb-4">
+            Crafted for Quality
+          </h2>
+          <p class="text-on-surface-variant">
+            Experience the richness of Bihar's finest harvests, processed
+            without additives or preservatives.
+          </p>
+        </div>
+        <button class="text-primary font-bold flex items-center gap-2 group">
+          View Entire Pantry
+          <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+        </button>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Product Card: Sattu -->
+        <div class="bg-surface-container-lowest rounded-xl p-6 group editorial-shadow border border-outline-variant/15">
+          <div class="aspect-[4/5] bg-surface-variant rounded-lg overflow-hidden mb-6 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              data-alt="Premium roasted gram flour sattu pack"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr9gv__kImo1eatK3OTHtviPfospwpUxCu6SreEQq2k5iCbqNUDc1dFJ5CCWrf53m2TZMkUJi3reos5YlL6J6ap0ezL3Z0nPYs2TPkiitxWQcx3Q1AIUYLbZ1lwtw4g-7cPM7PrZCbVHBEmDoP2DOWu2DbCOqE6DHpr8R5DT8LWHZ5pnnaOusAicsVznZmer5Kpa8ajLUsMgpK49CZ7rBvUdAHXFvql5_g8RfVDCHILjQUwvb_Neyoq5aL9ReimnztDVEyjddVJ20" />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Bestseller</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline text-2xl font-bold">Chana Sattu</h3>
+            <span class="text-primary font-bold text-xl">₹120</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6">
+            Roasted Black Chickpea Flour. The high-protein superfood of the
+            East.
+          </p>
+          <button
+            class="w-full py-3 rounded-lg border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-colors">
+            Add to Bag
+          </button>
+        </div>
+        <!-- Product Card: Besan -->
+        <div class="bg-surface-container-lowest rounded-xl p-6 group editorial-shadow border border-outline-variant/15">
+          <div class="aspect-[4/5] bg-surface-variant rounded-lg overflow-hidden mb-6 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              data-alt="Fine yellow besan flour in wooden bowl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr5YaYp80CwjxYjpJ0yzIWWgCw-p79NiLzv-F2kcy8DE7zLL-bQ3JqUWjYJ9efQzVM4nuo3wcAWrn4fgBqbbrKsEiUd6gqR-i5VwWfWxAJKRoqW1qXyG-lErrSbRhee4YMnH-GDmOglQ5RwHUlx2naZE-Mg5gHSboL548MKnoRaAmaV2Sid5dBOqQfNeke1vtxNYKgBlz707EmCxpMAXesXGwfAe2E8ke7KPxYgnASUd0fqtAcXir4ZJ_cFD0_dxcAOrl6pXtKTig" />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline text-2xl font-bold">Pure Besan</h3>
+            <span class="text-primary font-bold text-xl">₹95</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6">
+            Fine-ground gram flour. Perfectly textured for laddoos and
+            pakoras.
+          </p>
+          <button
+            class="w-full py-3 rounded-lg border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-colors">
+            Add to Bag
+          </button>
+        </div>
+        <!-- Product Card: Atta -->
+        <div class="bg-surface-container-lowest rounded-xl p-6 group editorial-shadow border border-outline-variant/15">
+          <div class="aspect-[4/5] bg-surface-variant rounded-lg overflow-hidden mb-6 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              data-alt="Whole wheat atta flour with grain ears"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3CvXjZ7cTkoS7rAmQyqaIgBJeNghjhe-nyRvi2e5QKsXs6oGuHOsO8LkvuPgm2PXY0ERVIJ6EcshtgPH1sFKr23ctYi8FTjL99453H4U9wYqCD7RgJq6LaaireRPmCl7_5C0f1ruOT1YAX8I1U8aTOXzF6G2eoDCBeFONibfRwHv32UJuQI1MnnUwVqk3Mvk3BJD-D92kymfuLW8kbA-lDh3HFlVf8E2YHBMQuIGqGJfZkH_kZZmnR5SvMmXCEwFjuxi0BBUbYrk" />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Heritage
+                Grain</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline text-2xl font-bold">Sharbati Atta</h3>
+            <span class="text-primary font-bold text-xl">₹210</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6">
+            Stone-ground whole wheat. Higher fiber, softer rotis, richer
+            taste.
+          </p>
+          <button
+            class="w-full py-3 rounded-lg border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-colors">
+            Add to Bag
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Heritage Quote -->
+    <section class="max-w-4xl mx-auto px-8 py-20 text-center">
+      <span class="material-symbols-outlined text-primary-container text-6xl mb-6"
+        style="font-variation-settings: &quot;FILL&quot; 1">format_quote</span>
+      <blockquote class="font-headline text-3xl italic text-on-background leading-snug">
+        "Our philosophy is simple: we don't interfere with what nature has
+        already perfected. We only help bring it to your table."
+      </blockquote>
+      <p class="mt-8 font-label text-sm uppercase tracking-widest text-secondary font-bold">
+        — Rajendra Prasad, Founder
+      </p>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="w-full mt-20 bg-[#f0ede8] dark:bg-stone-950">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-12 py-16 w-full max-w-7xl mx-auto">
+      <div>
+        <div class="font-serif text-xl text-[#795900] mb-6">
+          Rajendra Sattu
+        </div>
+        <p class="text-[#50453b] dark:text-stone-500 mb-6 max-w-xs leading-relaxed">
+          Bringing the authentic taste of rural heritage to modern kitchens
+          since 1974.
         </p>
       </div>
-    </footer>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex flex-col space-y-4">
+          <span class="font-sans text-sm tracking-wide uppercase text-[#795900] font-bold">Explore</span>
+          <a class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors" href="#">Instagram</a>
+          <a class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors" href="#">Facebook</a>
+          <a class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors" href="#">LinkedIn</a>
+        </div>
+        <div class="flex flex-col space-y-4">
+          <span class="font-sans text-sm tracking-wide uppercase text-[#795900] font-bold">Legal</span>
+          <a class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors" href="#">Privacy
+            Policy</a>
+          <a class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] transition-colors" href="#">Terms of
+            Service</a>
+        </div>
+      </div>
+      <div class="flex flex-col space-y-6">
+        <span class="font-sans text-sm tracking-wide uppercase text-[#795900] font-bold">Join Our Journal</span>
+        <div class="relative">
+          <input
+            class="w-full bg-transparent border-b-2 border-[#d4c4b7] py-2 focus:outline-none focus:border-[#795900] transition-colors placeholder:text-[#50453b]/50"
+            placeholder="Email Address" type="email" />
+          <button class="absolute right-0 top-1/2 -translate-y-1/2 material-symbols-outlined text-[#795900]">
+            arrow_forward
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="px-12 pb-12 w-full max-w-7xl mx-auto border-t border-[#d4c4b7]/15 pt-8">
+      <p class="font-sans text-sm tracking-wide uppercase text-[#50453b] dark:text-stone-500 text-center md:text-left">
+        © 2024 Rajendra Sattu. Naturally Processed Heritage.
+      </p>
+    </div>
+  </footer>
 
-    <script>
-  fetch("navbar.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
 
-      // Active link highlight
-      const links = document.querySelectorAll(".nav-link");
-      const current = window.location.pathname.split("/").pop();
+        // Active link highlight
+        const links = document.querySelectorAll(".nav-link");
+        const current = window.location.pathname.split("/").pop();
 
-      links.forEach(link => {
-        if (link.getAttribute("href") === current) {
-          link.classList.add("text-[#795900]", "font-bold", "border-b-2", "border-[#795900]", "pb-1");
-        } else {
-          link.classList.add("text-[#50453b]", "hover:text-[#795900]", "transition-colors");
-        }
+        links.forEach(link => {
+          if (link.getAttribute("href") === current) {
+            link.classList.add("text-[#795900]", "font-bold", "border-b-2", "border-[#795900]", "pb-1");
+          } else {
+            link.classList.add("text-[#50453b]", "hover:text-[#795900]", "transition-colors");
+          }
+        });
       });
-    });
-</script>
-  </body>
+  </script>
+</body>
+
 </html>
