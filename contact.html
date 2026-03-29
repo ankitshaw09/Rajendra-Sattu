@@ -102,30 +102,22 @@
 </head>
 
 <body class="bg-background text-on-background font-body">
-  <!-- TopAppBar -->
-  <!-- TopNavBar -->
+
   <nav class="fixed top-0 w-full z-50 bg-[#fcf9f4]/80 backdrop-blur-xl border-b border-[#d4c4b7]/15">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
       <div class="text-2xl font-serif font-bold text-[#795900]">
         <a href="index.html">Rajendra Sattu</a>
       </div>
       <div class="hidden md:flex items-center space-x-8 font-serif text-lg tracking-tight">
-        <a class="text-[#795900] font-bold border-b-2 border-[#795900] pb-1" href="Home.html">Home</a>
+        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="index.html">Home</a>
         <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="product.html">Products</a>
         <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="ourProcess.html">Our
           Process</a>
         <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="story.html">Our Story</a>
-        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="contact.html  ">Contact</a>
+
+        <a class="text-[#795900] font-bold border-b-2 border-[#795900] pb-1" href="contact.html">Contact</a>
       </div>
-      <div class="flex items-center space-x-6">
-        <button class="material-symbols-outlined text-on-surface-variant">
-          search
-        </button>
-        <button
-          class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold hero-gradient active:scale-95 transition-all duration-200">
-          Shop Now
-        </button>
-      </div>
+
     </div>
   </nav>
 
@@ -152,8 +144,9 @@
           <div>
             <h3 class="font-headline text-xl font-bold mb-2">Our Roots</h3>
             <p class="text-on-surface-variant leading-relaxed">
-              Plot 42, Heritage Industrial Estate,<br />
-              Varanasi, Uttar Pradesh 221001,<br />
+              Par Dankuni ExpressWay, <br />
+              Near Dankuni TollPlaza ,<br />
+              Hooghly, West Bengal 712310,<br />
               India
             </p>
           </div>
@@ -169,7 +162,7 @@
               Direct Inquiry
             </h3>
             <p class="text-on-surface-variant leading-relaxed">
-              +91 (542) 234-5678
+              +91 9876543210
             </p>
             <p class="text-on-surface-variant leading-relaxed">
               namaste@rajendrasattu.com
@@ -234,37 +227,32 @@
     </div>
     <!-- Map Section -->
     <section class="mt-20">
-      <div class="relative w-full h-[450px] rounded-xl overflow-hidden bg-surface-variant group">
-        <div class="absolute inset-0 bg-stone-200" data-location="Varanasi, India">
-          <!-- Map Placeholder -->
-          <img alt="Map of Varanasi" class="w-full h-full object-cover filter grayscale opacity-60"
-            data-alt="Aerial view of Varanasi city near the Ganges"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVkAX3_Ang49SLnYMjmlLCZJcWSSwyQ3fC75lNv24hsuJbNDTwpr9y0Y-7Fr5gKRFN4fmdSIxRMETkoaxl1VBQi7IpY0rdH3D4orS8gWVm9m86U67IYiqDz9Po-ADTBDEdi1uTVyYRGU-1ak3Ml2oI30CmyitkCyvb0VnM6yK5N82-aa90EDpJwhs6h6auEV0ZWXwt9vRGSy89iWcJl0gWSHVTTn65iujxBwufHLC4AlF3mzwH-nZ1sYTKCVfQCbw9touf5dusHl8" />
-        </div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <div
-            class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary animate-pulse">
-            <span class="material-symbols-outlined text-primary text-4xl"
-              style="font-variation-settings: &quot;FILL&quot; 1">location_on</span>
-          </div>
-        </div>
-        <!-- Float Info Overlay -->
-        <div
-          class="absolute bottom-8 left-8 right-8 md:right-auto md:w-96 bg-surface-container-lowest/90 backdrop-blur p-6 rounded-xl shadow-xl">
-          <h4 class="font-headline font-bold text-lg mb-2">
+      <div class="relative w-full h-[450px] rounded-xl overflow-hidden">
+
+        <!-- Google Map -->
+        <!-- <iframe class="absolute inset-0 w-full h-full border-0" src="https://maps.app.goo.gl/HkUsi6Nt9wfPaZdo6"
+          loading="lazy">
+        </iframe> -->
+        <iframe class="absolute inset-0 w-full h-full border-0"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.687524917872!2d88.2864618!3d22.702673400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8837f0c3ee371%3A0xf3e451eedc6895a3!2sRajendra%20Sattu%20Factory!5e0!3m2!1sen!2sin!4v1774794398377!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- Overlay Content -->
+        <div class="absolute bottom-8 left-8 bg-white/90 p-6 rounded-xl shadow-xl">
+          <h4 class="font-bold text-lg mb-2">
             Visit Our Processing Facility
           </h4>
-          <p class="text-sm text-on-surface-variant mb-4">
-            Experience the traditional roasting and stone-grinding process
-            firsthand. Tours available Mon-Fri.
-          </p>
-          <a class="text-primary font-bold text-sm underline flex items-center gap-2" href="#">
-            Get Directions
-            <span class="material-symbols-outlined text-xs">arrow_forward</span>
+          <a href="https://maps.app.goo.gl/HkUsi6Nt9wfPaZdo6" target="_blank" class="text-blue-600 underline text-sm">
+            Open in Google Maps →
           </a>
         </div>
+
       </div>
     </section>
+
+
+
   </main>
   <!-- Footer -->
   <footer class="w-full mt-20 bg-[#f0ede8] dark:bg-stone-950">
@@ -296,41 +284,13 @@
         <a class="text-[#50453b] dark:text-stone-500 hover:text-[#795900] dark:hover:text-[#f1bf4c] font-sans text-sm tracking-wide uppercase transition-colors"
           href="#">Terms of Service</a>
         <p class="text-[#50453b] dark:text-stone-500 font-sans text-sm tracking-wide uppercase mt-4">
-          © 2024 Rajendra Sattu. Naturally Processed Heritage.
+          © 2024 Satya Narayan Shaw. Naturally Processed Heritage.
         </p>
       </div>
     </div>
   </footer>
 
-  <script>
-    fetch("navbar.html")
-      .then((res) => res.text())
-      .then((data) => {
-        document.getElementById("navbar").innerHTML = data;
 
-        // Active link highlight
-        const links = document.querySelectorAll(".nav-link");
-        const current = window.location.pathname.split("/").pop();
-
-        links.forEach((link) => {
-          if (link.getAttribute("href") === current) {
-            link.classList.add(
-              "text-[#795900]",
-              "font-bold",
-              "border-b-2",
-              "border-[#795900]",
-              "pb-1",
-            );
-          } else {
-            link.classList.add(
-              "text-[#50453b]",
-              "hover:text-[#795900]",
-              "transition-colors",
-            );
-          }
-        });
-      });
-  </script>
 </body>
 
 </html>

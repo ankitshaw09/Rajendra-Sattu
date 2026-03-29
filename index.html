@@ -140,7 +140,7 @@
     <!-- Hero Section: Editorial Style -->
     <section class="relative px-8 py-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
       <div class="flex-1 z-10">
-        <span class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4 block">Est. 1974</span>
+        <span class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4 block">Est. 1977</span>
         <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-background leading-[1.1] mb-8">
           The Soul of <br /><span class="text-primary">Ancient Grains</span>
         </h1>
@@ -333,7 +333,7 @@
         already perfected. We only help bring it to your table."
       </blockquote>
       <p class="mt-8 font-label text-sm uppercase tracking-widest text-secondary font-bold">
-        — Rajendra Prasad, Founder
+        — Satya Narayan Shaw, Founder
       </p>
     </section>
   </main>
@@ -346,7 +346,7 @@
         </div>
         <p class="text-[#50453b] dark:text-stone-500 mb-6 max-w-xs leading-relaxed">
           Bringing the authentic taste of rural heritage to modern kitchens
-          since 1974.
+          since 1977.
         </p>
       </div>
       <div class="grid grid-cols-2 gap-4">
@@ -378,30 +378,12 @@
     </div>
     <div class="px-12 pb-12 w-full max-w-7xl mx-auto border-t border-[#d4c4b7]/15 pt-8">
       <p class="font-sans text-sm tracking-wide uppercase text-[#50453b] dark:text-stone-500 text-center md:text-left">
-        © 2024 Rajendra Sattu. Naturally Processed Heritage.
+        © 2024 Satya Narayan Shaw. Naturally Processed Heritage.
       </p>
     </div>
   </footer>
 
-  <script>
-    fetch("navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
 
-        // Active link highlight
-        const links = document.querySelectorAll(".nav-link");
-        const current = window.location.pathname.split("/").pop();
-
-        links.forEach(link => {
-          if (link.getAttribute("href") === current) {
-            link.classList.add("text-[#795900]", "font-bold", "border-b-2", "border-[#795900]", "pb-1");
-          } else {
-            link.classList.add("text-[#50453b]", "hover:text-[#795900]", "transition-colors");
-          }
-        });
-      });
-  </script>
 </body>
 
 </html>

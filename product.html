@@ -114,12 +114,13 @@
         <a href="index.html">Rajendra Sattu</a>
       </div>
       <div class="hidden md:flex items-center space-x-8 font-serif text-lg tracking-tight">
-        <a class="text-[#795900] font-bold border-b-2 border-[#795900] pb-1" href="index.html">Home</a>
-        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="product.html">Products</a>
+        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="index.html">Home</a>
+        <a class="text-[#795900] font-bold border-b-2 border-[#795900] pb-1" href="product.html"> Products</a>
         <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="ourProcess.html">Our
           Process</a>
+
         <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="story.html">Our Story</a>
-        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="contact.html  ">Contact</a>
+        <a class="text-[#50453b] hover:text-[#795900] transition-colors duration-300" href="contact.html">Contact</a>
       </div>
       <!-- <div class="flex items-center space-x-6">
       <button class="material-symbols-outlined text-on-surface-variant">
@@ -469,25 +470,7 @@
     </div>
   </footer>
 
-  <script>
-    fetch("navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
 
-        // Active link highlight
-        const links = document.querySelectorAll(".nav-link");
-        const current = window.location.pathname.split("/").pop();
-
-        links.forEach(link => {
-          if (link.getAttribute("href") === current) {
-            link.classList.add("text-[#795900]", "font-bold", "border-b-2", "border-[#795900]", "pb-1");
-          } else {
-            link.classList.add("text-[#50453b]", "hover:text-[#795900]", "transition-colors");
-          }
-        });
-      });
-  </script>
 </body>
 
 </html>
