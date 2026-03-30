@@ -487,7 +487,8 @@
 
       // Active link highlight
       const links = document.querySelectorAll(".nav-link");
-      const current = window.location.pathname.split("/").pop();
+      let current = window.location.pathname.split("/").pop();
+      if (current === '') current = 'index.html';
 
       links.forEach(link => {
         if (link.getAttribute("href") === current) {
