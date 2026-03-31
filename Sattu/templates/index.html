@@ -109,7 +109,7 @@
   >
     <!-- TopNavBar -->
 
-    <div id="navbar"></div>
+    {% include 'navbar.html' %}
    
     <main class="pt-24 overflow-hidden">
       <!-- Hero Section: Editorial Style -->
@@ -480,24 +480,6 @@
     </footer>
 
     <script>
-  fetch("navbar.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
 
-      // Active link highlight
-      const links = document.querySelectorAll(".nav-link");
-      let current = window.location.pathname.split("/").pop();
-      if (current === '') current = 'index.html';
-
-      links.forEach(link => {
-        if (link.getAttribute("href") === current) {
-          link.classList.add("text-[#795900]", "font-bold", "border-b-2", "border-[#795900]", "pb-1");
-        } else {
-          link.classList.add("text-[#50453b]", "hover:text-[#795900]", "transition-colors");
-        }
-      });
-    });
-</script>
   </body>
 </html>

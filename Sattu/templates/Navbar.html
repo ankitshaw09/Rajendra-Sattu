@@ -1,0 +1,46 @@
+<!-- TopNavBar -->
+<nav
+  class="fixed top-0 w-full z-50 bg-[#fcf9f4]/80 backdrop-blur-xl border-b border-[#d4c4b7]/15">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <div class="text-2xl font-serif font-bold text-[#795900]">
+      Rajendra Sattu
+    </div>
+    <div
+      class="hidden md:flex items-center space-x-8 font-serif text-lg tracking-tight">
+      <a
+        class="nav-link {% if request.path == '/' %}text-[#795900] font-bold{% endif %}"
+        href="{% url 'home' %}">
+        Home
+      </a>
+      <a
+        class="nav-link {% if request.path == '/products/' %}text-[#795900] font-bold{% endif %}"
+        href="{% url 'products' %}"
+        >Products</a
+      >
+      <a
+        class="nav-link {% if request.path == '/process/' %}text-[#795900] font-bold{% endif %}"
+        href="{% url 'process' %}"
+        >Our Process</a
+      >
+      <a
+        class="nav-link {% if request.path == '/story/' %}text-[#795900] font-bold{% endif %}"
+        href="{% url 'story' %}"
+        >Our Story</a
+      >
+      <a
+        class="nav-link {% if request.path == '/contact/' %}text-[#795900] font-bold{% endif %}"
+        href="{% url 'contact' %}"
+        >Contact</a
+      >
+    </div>
+    <!-- <div class="flex items-center space-x-6">
+      <button class="material-symbols-outlined text-on-surface-variant">
+        search
+      </button>
+      <button
+        class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold hero-gradient active:scale-95 transition-all duration-200">
+        Shop Now
+      </button>
+    </div> -->
+  </div>
+</nav>
