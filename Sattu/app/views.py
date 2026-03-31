@@ -3,6 +3,7 @@ from .models import *
 from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from django.contrib import messages
+import random
 
 
 # Create your views here.
@@ -26,6 +27,11 @@ from django.conf import settings
 
 def contact(request):
     if request.method == "POST":
+        user_captcha = request.POST.get("captcha")
+        real_captcha = request.session.get("captcha")
+        if not user_captcha or user_captcha != real_captcha:
+            messages.error(request, "Invalid captcha!")
+            return redirect("contact")
         name = request.POST.get("name")
         email = request.POST.get("email")
         phone = request.POST.get("phone")
@@ -72,11 +78,16 @@ Rajendra Sattu Team
             to=[email],  # 🔥 send to user
         )
         user_email.send()
-
+        
+        request.session.pop("captcha", None)
         messages.success(request, "Message sent successfully!")
         return redirect("contact")
+    
+    captcha = str(random.randint(1000, 9999))
+    request.session["captcha"] = captcha
+    
 
-    return render(request, "contact.html")
+    return render(request, "contact.html", {"captcha": captcha})
 
 
 def process(request):
