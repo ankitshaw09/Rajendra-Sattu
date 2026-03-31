@@ -1,19 +1,83 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import *
+from django.core.mail import send_mail, EmailMessage
+from django.conf import settings
+from django.contrib import messages
+
 
 # Create your views here.
 
+
 def home(request):
-    return render(request, 'index.html')
+    return render(request, "index.html")
+
 
 def products(request):
-    return render(request, 'product.html')
+    return render(request, "product.html")
+
 
 def story(request):
-    return render(request, 'story.html')
+    return render(request, "story.html")
+
+
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        # Save to DB
+        Contact.objects.create(name=name, email=email, subject=subject, message=message)
+
+        # 📩 1. Email to OWNER
+        owner_email = EmailMessage(
+            subject=f"New Inquiry: {subject}",
+            body=f"""
+Name: {name}
+Email: {email}
+Phone: {phone}
+
+Message:
+{message}
+""",
+            from_email=settings.EMAIL_HOST_USER,
+            to=["ankitshaw.py@gmail.com"],
+            reply_to=[email],
+        )
+        owner_email.send()
+
+        # 📩 2. Email to USER (confirmation)
+        user_email = EmailMessage(
+            subject="We received your inquiry ✅",
+            body=f"""
+Hi {name},
+
+Thank you for contacting Rajendra Sattu.
+
+We have received your message:
+"{message}"
+
+Our team will contact you soon.
+
+Regards,
+Rajendra Sattu Team
+""",
+            from_email=settings.EMAIL_HOST_USER,
+            to=[email],  # 🔥 send to user
+        )
+        user_email.send()
+
+        messages.success(request, "Message sent successfully!")
+        return redirect("contact")
+
+    return render(request, "contact.html")
+
 
 def process(request):
-    return render(request, 'ourProcess.html') 
+    return render(request, "ourProcess.html")
