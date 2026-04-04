@@ -1,3 +1,4 @@
+{% load date_extras %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -1162,7 +1163,7 @@
             <div>
               <div class="hero-badge-pill au">
                 <span class="dot"></span>
-                <span>Established 1977 · Patna, Bihar</span>
+                <span>Established 1978 · Kolkata, West Bengal</span>
               </div>
               <h1 class="hero-h1 au d1">
                 The Soul<br />of <em>Ancient</em><br />Grains
@@ -1224,7 +1225,7 @@
                 <small>Cold pressed · Low heat</small>
               </div>
               <div class="hero-stat-fl">
-                <span class="sn">47+</span>
+                <span class="sn">{% years_since 1978 %}+</span>
                 <span class="sl">Years of<br />Heritage</span>
               </div>
             </div>
@@ -1468,15 +1469,15 @@
         <div class="container">
           <div class="stats-grid">
             <div class="stat-item">
-              <span class="stat-big">47+</span
+              <span class="stat-big">{% years_since 1978 %}+</span
               ><span class="stat-lab">Years of Heritage</span>
             </div>
             <div class="stat-item">
-              <span class="stat-big">3</span
+              <span class="stat-big">2</span
               ><span class="stat-lab">Generations of Craft</span>
             </div>
             <div class="stat-item">
-              <span class="stat-big">12</span
+              <span class="stat-big">10+</span
               ><span class="stat-lab">Grain Varieties</span>
             </div>
             <div class="stat-item">
@@ -1495,7 +1496,7 @@
             Our philosophy is simple: we don't interfere with what nature has
             already perfected. We only help bring it to your table.
           </blockquote>
-          <p class="q-auth">— Satya Narayan Shaw, Founder · 1977</p>
+          <p class="q-auth">— Satya Narayan Shaw, Founder · 1978</p>
           <div class="q-orn">
             <span
               class="material-symbols-outlined"
