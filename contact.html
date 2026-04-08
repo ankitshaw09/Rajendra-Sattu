@@ -186,6 +186,7 @@
       <div
         class="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-[0_8px_24px_-4px_rgba(80,69,59,0.1)]">
         <h2 class="font-headline text-3xl font-bold mb-8">Send a Message</h2>
+<<<<<<< HEAD
         <form class="space-y-8">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="flex flex-col gap-2">
@@ -248,6 +249,77 @@
           </a>
         </div>
 
+=======
+        <!-- <form class="space-y-8"> -->
+        <!-- <form action="https://formsubmit.co/shawankit5@gmail.com" method="POST" class="space-y-8"> -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="flex flex-col gap-2">
+            <label class="font-label text-xs font-bold tracking-wider text-outline uppercase">Your Name</label>
+            <input name="name"
+              class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 placeholder:text-outline/40 transition-colors"
+              placeholder="Arjun Sharma" type="text" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="font-label text-xs font-bold tracking-wider text-outline uppercase">Email Address</label>
+            <input name="email"
+              class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 placeholder:text-outline/40 transition-colors"
+              placeholder="arjun@example.com" type="email" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="font-label text-xs font-bold tracking-wider text-outline uppercase">Subject</label>
+          <select name="subject"
+            class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 transition-colors">
+            <option>Wholesale Inquiry</option>
+            <option>Product Feedback</option>
+            <option>Process Visit</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="font-label text-xs font-bold tracking-wider text-outline uppercase">Message</label>
+          <textarea name="message"
+            class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 placeholder:text-outline/40 transition-colors resize-none"
+            placeholder="How can we help you today?" rows="4"></textarea>
+
+        </div>
+
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Inquiry Received">
+        <button
+          class="heritage-gradient text-on-primary w-full md:w-auto px-10 py-4 rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300"
+          type="submit">
+          Send Inquiry
+        </button>
+        </form>
+      </div>
+    </div>
+    <!-- Map Section -->
+    <section class="mt-20">
+      <div class="relative w-full h-[450px] rounded-xl overflow-hidden">
+
+        <!-- Google Map -->
+        <!-- <iframe class="absolute inset-0 w-full h-full border-0" src="https://maps.app.goo.gl/HkUsi6Nt9wfPaZdo6"
+          loading="lazy">
+        </iframe> -->
+        <iframe class="absolute inset-0 w-full h-full border-0"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.687524917872!2d88.2864618!3d22.702673400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8837f0c3ee371%3A0xf3e451eedc6895a3!2sRajendra%20Sattu%20Factory!5e0!3m2!1sen!2sin!4v1774794398377!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- Overlay Content -->
+        <div class="absolute bottom-8 left-8 bg-white/90 p-6 rounded-xl shadow-xl">
+          <h4 class="font-bold text-lg mb-2">
+            Visit Our Processing Facility
+          </h4>
+          <a href="https://maps.app.goo.gl/HkUsi6Nt9wfPaZdo6" target="_blank" class="text-blue-600 underline text-sm">
+            Open in Google Maps →
+          </a>
+        </div>
+
+>>>>>>> 7ccd2bf1c2afc27a58988c4ecfae14444af29bf8
       </div>
     </section>
 

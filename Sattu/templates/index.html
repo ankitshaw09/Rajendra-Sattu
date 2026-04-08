@@ -1,0 +1,1523 @@
+{% load date_extras %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rajendra Sattu | Naturally Processed Heritage</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f7f2e9;
+        --bg-deep: #efe8d8;
+        --surface: #fdfaf4;
+        --surface-card: #fffef9;
+        --primary: #7a4f00;
+        --primary-light: #c8811a;
+        --primary-gold: #e0a825;
+        --primary-pale: #fdefc9;
+        --secondary: #3d5a22;
+        --secondary-pale: #deebbf;
+        --terra: #8a4a3b;
+        --terra-pale: #f4ddd8;
+        --ink: #1e1a12;
+        --ink-soft: #5a4e3c;
+        --ink-muted: #8a7c68;
+        --border: rgba(122, 79, 0, 0.14);
+        --gold-line: #d9a520;
+        --font-head: "Instrument Serif", "Noto Serif", Georgia, serif;
+        --font-sub: "Noto Serif", Georgia, serif;
+        --font-body: "DM Sans", sans-serif;
+        --shadow-card:
+          0 4px 32px rgba(90, 60, 10, 0.1), 0 1px 4px rgba(90, 60, 10, 0.06);
+        --shadow-strong: 0 12px 48px rgba(90, 60, 10, 0.18);
+        --radius: 14px;
+        --radius-sm: 8px;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+      ::selection {
+        background: var(--primary-pale);
+        color: var(--primary);
+      }
+
+      /* Grain overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        background-size: 200px 200px;
+      }
+
+      .material-symbols-outlined {
+        font-family: "Material Symbols Outlined";
+        font-style: normal;
+        font-size: 24px;
+        display: inline-block;
+        line-height: 1;
+        vertical-align: middle;
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .container {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 2.5rem;
+      }
+      .eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--secondary);
+        display: block;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Animations */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes floatA {
+        0%,
+        100% {
+          transform: rotate(-5deg) translateY(0);
+        }
+        50% {
+          transform: rotate(-5deg) translateY(-10px);
+        }
+      }
+      @keyframes floatB {
+        0%,
+        100% {
+          transform: rotate(3deg) translateY(0);
+        }
+        50% {
+          transform: rotate(3deg) translateY(-8px);
+        }
+      }
+      @keyframes marqueeScroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .au {
+        animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .ai {
+        animation: fadeIn 1s ease both;
+      }
+      .d1 {
+        animation-delay: 0.15s;
+      }
+      .d2 {
+        animation-delay: 0.3s;
+      }
+      .d3 {
+        animation-delay: 0.48s;
+      }
+      .d4 {
+        animation-delay: 0.62s;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1rem 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(247, 242, 233, 0.9);
+        backdrop-filter: blur(18px) saturate(160%);
+        border-bottom: 1px solid var(--border);
+        transition: box-shadow 0.3s;
+      }
+      nav.scrolled {
+        box-shadow: 0 2px 24px rgba(90, 60, 10, 0.09);
+      }
+      .nav-brand {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+      .nav-brand-main {
+        font-family: var(--font-head);
+        font-size: 1.3rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+      .nav-brand-sub {
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.84rem;
+        font-weight: 500;
+        color: var(--ink-soft);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: color 0.2s;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 100%;
+        height: 1.5px;
+        background: var(--primary-gold);
+        transition: right 0.28s ease;
+      }
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+      .nav-links a:hover::after {
+        right: 0;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .nav-icon {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink-soft);
+        display: flex;
+        align-items: center;
+        padding: 0.4rem;
+        border-radius: 50%;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .nav-icon:hover {
+        background: var(--primary-pale);
+        color: var(--primary);
+      }
+      .btn-cta-nav {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 0.58rem 1.2rem;
+        border-radius: 100px;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+      .btn-cta-nav:hover {
+        background: var(--primary-light);
+        transform: translateY(-1px);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        padding-top: 5.5rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -120px;
+        width: 640px;
+        height: 640px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 40% 40%,
+          #e8c46618,
+          #c8811a06,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -60px;
+        left: -80px;
+        width: 440px;
+        height: 440px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #3d5a220c, transparent 70%);
+        pointer-events: none;
+      }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        width: 100%;
+      }
+      .hero-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--primary-pale);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 0.38rem 1rem 0.38rem 0.55rem;
+        margin-bottom: 1.8rem;
+      }
+      .hero-badge-pill .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary-gold);
+        flex-shrink: 0;
+      }
+      .hero-badge-pill span {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--primary);
+      }
+      .hero-h1 {
+        font-family: var(--font-head);
+        font-size: clamp(3rem, 5.5vw, 5.5rem);
+        font-weight: 700;
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin-bottom: 1.4rem;
+      }
+      .hero-h1 em {
+        font-style: italic;
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+      }
+      .hero-h1 em::after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-gold), transparent);
+        border-radius: 2px;
+      }
+      .hero-sub {
+        font-size: 1.05rem;
+        color: var(--ink-soft);
+        max-width: 400px;
+        line-height: 1.72;
+        margin-bottom: 2.2rem;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 0.88rem 1.8rem;
+        border-radius: 100px;
+        box-shadow: 0 4px 20px rgba(122, 79, 0, 0.26);
+        transition:
+          background 0.25s,
+          transform 0.2s,
+          box-shadow 0.25s;
+        text-decoration: none;
+      }
+      .btn-primary:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(122, 79, 0, 0.3);
+      }
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary);
+        padding: 0.88rem 0;
+        border-bottom: 2px solid var(--primary-pale);
+        transition: border-color 0.2s;
+        text-decoration: none;
+      }
+      .btn-ghost:hover {
+        border-color: var(--primary-gold);
+      }
+      .btn-ghost .arr,
+      .btn-primary .arr {
+        transition: transform 0.2s;
+      }
+      .btn-ghost:hover .arr,
+      .btn-primary:hover .arr {
+        transform: translateX(3px);
+      }
+
+      .hero-trust {
+        display: flex;
+        gap: 1.4rem;
+        margin-top: 2.2rem;
+        flex-wrap: wrap;
+      }
+      .trust-pill {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 0.77rem;
+        font-weight: 500;
+        color: var(--ink-soft);
+      }
+      .trust-pill .tw {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--secondary-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .trust-pill .tw .material-symbols-outlined {
+        font-size: 15px;
+        color: var(--secondary);
+        font-variation-settings:
+          "FILL" 1,
+          "wght" 400;
+      }
+
+      .hero-visual {
+        position: relative;
+      }
+      .hero-img-main {
+        width: 100%;
+        aspect-ratio: 4/5;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-strong);
+        transform: rotate(3deg);
+        animation: floatB 6s ease-in-out infinite;
+        position: relative;
+      }
+      .hero-img-main::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(30, 20, 5, 0.22) 0%,
+          transparent 50%
+        );
+      }
+      .hero-img-main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-badge-fl {
+        position: absolute;
+        left: -46px;
+        bottom: 56px;
+        background: var(--surface-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 1.1rem 1.3rem;
+        box-shadow: var(--shadow-card);
+        animation: floatA 5s ease-in-out 1s infinite;
+        min-width: 155px;
+      }
+      .hero-badge-fl .ic {
+        font-size: 1.9rem;
+        color: var(--secondary);
+        font-variation-settings:
+          "FILL" 1,
+          "wght" 400;
+        margin-bottom: 0.45rem;
+        display: block;
+      }
+      .hero-badge-fl p {
+        font-family: var(--font-sub);
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.2;
+      }
+      .hero-badge-fl small {
+        font-size: 0.68rem;
+        color: var(--ink-muted);
+      }
+      .hero-stat-fl {
+        position: absolute;
+        right: -18px;
+        top: 44px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: var(--radius-sm);
+        padding: 0.9rem 1.2rem;
+        box-shadow: 0 8px 24px rgba(122, 79, 0, 0.3);
+        text-align: center;
+        min-width: 108px;
+        animation: floatA 5.5s ease-in-out 0.5s infinite;
+      }
+      .hero-stat-fl .sn {
+        font-family: var(--font-head);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-pale);
+        display: block;
+        line-height: 1;
+      }
+      .hero-stat-fl .sl {
+        font-size: 0.66rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.8;
+        margin-top: 0.25rem;
+        display: block;
+      }
+
+      /* ── MARQUEE ── */
+      .marquee-band {
+        background: var(--primary);
+        overflow: hidden;
+        padding: 0.72rem 0;
+        margin-top: 4.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marqueeScroll 30s linear infinite;
+      }
+      .mi {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0 2.2rem;
+        white-space: nowrap;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.88);
+      }
+      .mi .dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--primary-gold);
+      }
+
+      /* ── PROCESS ── */
+      .sect-process {
+        padding: 7.5rem 0;
+        background: var(--bg-deep);
+        position: relative;
+      }
+      .sect-process::before,
+      .sect-process::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold-line),
+          transparent
+        );
+      }
+      .sect-process::before {
+        top: 0;
+      }
+      .sect-process::after {
+        bottom: 0;
+      }
+      .process-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+      }
+      .pgallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .pcol-offset {
+        padding-top: 2.5rem;
+      }
+      .pimg {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+        background: var(--surface-card);
+        padding: 5px;
+      }
+      .pimg img {
+        border-radius: 6px;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .pimg-t img {
+        height: 250px;
+      }
+      .pimg-s img {
+        height: 170px;
+      }
+
+      .ptext h2 {
+        font-family: var(--font-head);
+        font-size: clamp(2rem, 3.2vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin: 0.8rem 0 1.1rem;
+      }
+      .ptext h2 span {
+        color: var(--primary);
+        font-style: italic;
+      }
+      .ptext > p {
+        font-size: 0.98rem;
+        color: var(--ink-soft);
+        line-height: 1.75;
+        margin-bottom: 2.2rem;
+        max-width: 420px;
+      }
+      .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .step {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .step-ic {
+        width: 42px;
+        height: 42px;
+        border-radius: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .gold-ic {
+        background: var(--primary-pale);
+      }
+      .grn-ic {
+        background: var(--secondary-pale);
+      }
+      .ter-ic {
+        background: var(--terra-pale);
+      }
+      .gold-ic .material-symbols-outlined {
+        color: var(--primary);
+        font-size: 19px;
+        font-variation-settings: "FILL" 1;
+      }
+      .grn-ic .material-symbols-outlined {
+        color: var(--secondary);
+        font-size: 19px;
+        font-variation-settings: "FILL" 1;
+      }
+      .ter-ic .material-symbols-outlined {
+        color: var(--terra);
+        font-size: 19px;
+        font-variation-settings: "FILL" 1;
+      }
+      .step-c h4 {
+        font-family: var(--font-sub);
+        font-size: 0.93rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.18rem;
+      }
+      .step-c p {
+        font-size: 0.83rem;
+        color: var(--ink-muted);
+        line-height: 1.55;
+      }
+
+      /* ── PRODUCTS ── */
+      .sect-products {
+        padding: 7.5rem 0;
+      }
+      .sect-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 3rem;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .sect-hd-l h2 {
+        font-family: var(--font-head);
+        font-size: clamp(1.9rem, 3vw, 2.7rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin: 0.65rem 0 0.5rem;
+        line-height: 1.15;
+      }
+      .sect-hd-l p {
+        font-size: 0.93rem;
+        color: var(--ink-muted);
+        max-width: 360px;
+      }
+      .btn-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.87rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-decoration: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-bottom: 1.5px solid var(--primary-pale);
+        transition: border-color 0.2s;
+        white-space: nowrap;
+        padding: 0;
+      }
+      .btn-link:hover {
+        border-color: var(--primary-gold);
+      }
+      .btn-link .arr {
+        transition: transform 0.2s;
+      }
+      .btn-link:hover .arr {
+        transform: translateX(4px);
+      }
+
+      .prod-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.4rem;
+      }
+      .prod-card {
+        background: var(--surface-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+        transition:
+          transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.3s;
+      }
+      .prod-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-strong);
+      }
+      .prod-img-w {
+        aspect-ratio: 4/5;
+        overflow: hidden;
+        position: relative;
+        background: var(--bg-deep);
+      }
+      .prod-img-w img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .prod-card:hover .prod-img-w img {
+        transform: scale(1.07);
+      }
+      .prod-img-ov {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(20, 10, 0, 0.28) 0%,
+          transparent 52%
+        );
+        pointer-events: none;
+      }
+      .prod-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        padding: 0.28rem 0.72rem;
+        border-radius: 100px;
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        backdrop-filter: blur(8px);
+      }
+      .b-grn {
+        background: rgba(61, 90, 34, 0.88);
+        color: #e2f0c8;
+      }
+      .b-terra {
+        background: rgba(138, 74, 59, 0.88);
+        color: #fce8e3;
+      }
+      .prod-body {
+        padding: 1.3rem 1.4rem 1.4rem;
+      }
+      .prod-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.4rem;
+      }
+      .prod-name {
+        font-family: var(--font-head);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.15;
+      }
+      .prod-price {
+        font-family: var(--font-sub);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        flex-shrink: 0;
+        margin-left: 0.5rem;
+      }
+      .prod-desc {
+        font-size: 0.83rem;
+        color: var(--ink-muted);
+        line-height: 1.58;
+        margin-bottom: 1.1rem;
+      }
+      .prod-tags {
+        display: flex;
+        gap: 0.42rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.1rem;
+      }
+      .prod-tag {
+        font-size: 0.67rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: var(--secondary);
+        background: var(--secondary-pale);
+        border-radius: 100px;
+        padding: 0.18rem 0.62rem;
+      }
+      .btn-bag {
+        width: 100%;
+        padding: 0.78rem;
+        border-radius: var(--radius-sm);
+        border: 1.5px solid var(--primary);
+        background: transparent;
+        color: var(--primary);
+        font-family: var(--font-body);
+        font-size: 0.84rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        transition:
+          background 0.22s,
+          color 0.22s,
+          transform 0.15s;
+      }
+      .btn-bag:hover {
+        background: var(--primary);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      /* ── STATS ── */
+      .sect-stats {
+        background: var(--ink);
+        padding: 5rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .sect-stats::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.018'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+      .stat-item {
+        text-align: center;
+        padding: 0 1rem;
+        position: relative;
+      }
+      .stat-item + .stat-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 10%;
+        bottom: 10%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .stat-big {
+        font-family: var(--font-head);
+        font-size: clamp(2.6rem, 4vw, 3.8rem);
+        font-weight: 700;
+        color: var(--primary-gold);
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+      .stat-lab {
+        font-size: 0.77rem;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      /* ── QUOTE ── */
+      .sect-quote {
+        padding: 8rem 0;
+        text-align: center;
+        position: relative;
+      }
+      .sect-quote::before {
+        content: "";
+        position: absolute;
+        top: 3.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 52px;
+        background: linear-gradient(to bottom, transparent, var(--gold-line));
+      }
+      .q-mark {
+        font-family: Georgia, serif;
+        font-size: 7rem;
+        line-height: 0.5;
+        color: var(--primary-pale);
+        margin-bottom: 1.3rem;
+        display: block;
+        user-select: none;
+      }
+      .q-text {
+        font-family: var(--font-head);
+        font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+        font-style: italic;
+        color: var(--ink);
+        max-width: 740px;
+        margin: 0 auto 1.7rem;
+        line-height: 1.52;
+        letter-spacing: -0.01em;
+      }
+      .q-auth {
+        font-size: 0.76rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--secondary);
+        font-weight: 600;
+      }
+      .q-orn {
+        margin: 1.8rem auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        color: var(--ink-muted);
+      }
+      .q-orn::before,
+      .q-orn::after {
+        content: "";
+        flex: 1;
+        max-width: 110px;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--ink);
+        color: rgba(255, 255, 255, 0.72);
+        padding: 4.5rem 0 2.2rem;
+        border-top: 3px solid var(--primary);
+      }
+      .foot-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3.5rem;
+      }
+      .foot-name {
+        font-family: var(--font-head);
+        font-size: 1.4rem;
+        color: #fff;
+        margin-bottom: 0.35rem;
+      }
+      .foot-sub {
+        font-size: 0.67rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--primary-gold);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .foot-desc {
+        font-size: 0.86rem;
+        line-height: 1.7;
+        max-width: 250px;
+      }
+      .foot-col-t {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 1.1rem;
+      }
+      .foot-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      .foot-col ul a {
+        font-size: 0.86rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .foot-col ul a:hover {
+        color: var(--primary-gold);
+      }
+      .foot-bot {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1.8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .foot-bot p {
+        font-size: 0.76rem;
+        color: rgba(255, 255, 255, 0.32);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .hero-sub,
+        .hero-trust {
+          margin-left: auto;
+          margin-right: auto;
+          justify-content: center;
+        }
+        .hero-actions {
+          justify-content: center;
+        }
+        .hero-visual {
+          display: none;
+        }
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+        .pgallery {
+          order: 2;
+        }
+        .prod-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .foot-top {
+          grid-template-columns: 1fr 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hero-badge-fl,
+        .hero-stat-fl {
+          display: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .container {
+          padding: 0 1.2rem;
+        }
+        .prod-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        .foot-top {
+          grid-template-columns: 1fr;
+        }
+        .sect-hd {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    {% include "navbar.html" %}
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-inner">
+            <div>
+              <div class="hero-badge-pill au">
+                <span class="dot"></span>
+                <span>Established 1978 · Kolkata, West Bengal</span>
+              </div>
+              <h1 class="hero-h1 au d1">
+                The Soul<br />of <em>Ancient</em><br />Grains
+              </h1>
+              <p class="hero-sub au d2">
+                Authentic, stone-ground flours crafted with the same natural
+                process passed down through three generations — nothing added,
+                nothing removed.
+              </p>
+              <div class="hero-actions au d3">
+                <a href="#" class="btn-primary">
+                  Explore Collection
+                  <span
+                    class="material-symbols-outlined arr"
+                    style="font-size: 18px"
+                    >arrow_forward</span
+                  >
+                </a>
+                <a href="#" class="btn-ghost">
+                  Our Heritage
+                  <span
+                    class="material-symbols-outlined arr"
+                    style="font-size: 18px"
+                    >east</span
+                  >
+                </a>
+              </div>
+              <div class="hero-trust au d4">
+                <div class="trust-pill">
+                  <div class="tw">
+                    <span class="material-symbols-outlined">eco</span>
+                  </div>
+                  No Additives
+                </div>
+                <div class="trust-pill">
+                  <div class="tw">
+                    <span class="material-symbols-outlined">grain</span>
+                  </div>
+                  Stone Ground
+                </div>
+                <div class="trust-pill">
+                  <div class="tw">
+                    <span class="material-symbols-outlined">sunny</span>
+                  </div>
+                  Sun Roasted
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual ai d1">
+              <div class="hero-img-main">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnIlE5Fg8f-B9tk_GwUYA0IgfeZp-hJY8cvyXedm2kYBipxml_diGOtxp0mpffuXu6EOOYyUSs3JlWwlwkERgLOM5IiUyN77_NV_3gBprJJjrtBj5ANZD2dhH1UUEYw2M3483PqjcdxxuA49BOywvCfAbgZisj7006YeELTXEQ3oLcY7B3gHGiFm_WROjjXzpjz3smxLhIkjfwRHqR6kV6dDdM24Mg9EsmMPnLdQ6zmfSCcaFlDkeUfCwObzV5bAD7Goy2_QZaVZ0"
+                  alt="Rustic grains display" />
+              </div>
+              <div class="hero-badge-fl">
+                <span class="material-symbols-outlined ic">eco</span>
+                <p>100% Stone<br />Ground</p>
+                <small>Cold pressed · Low heat</small>
+              </div>
+              <div class="hero-stat-fl">
+                <span class="sn">{% years_since 1978 %}+</span>
+                <span class="sl">Years of<br />Heritage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE -->
+      <div class="marquee-band">
+        <div class="marquee-track">
+          <span class="mi"><span class="dot"></span>Chana Sattu</span>
+          <span class="mi"><span class="dot"></span>Pure Besan</span>
+          <span class="mi"><span class="dot"></span>Sharbati Atta</span>
+          <span class="mi"><span class="dot"></span>Makka Flour</span>
+          <span class="mi"><span class="dot"></span>Jowar Flour</span>
+          <span class="mi"><span class="dot"></span>Stone Ground</span>
+          <span class="mi"><span class="dot"></span>No Preservatives</span>
+          <span class="mi"><span class="dot"></span>Heritage Process</span>
+          <span class="mi"><span class="dot"></span>Jau Atta</span>
+          <span class="mi"><span class="dot"></span>Pure Besan</span>
+          <span class="mi"><span class="dot"></span>Jau Sattu</span>
+          <span class="mi"><span class="dot"></span>Sharbati Atta</span>
+          <span class="mi"><span class="dot"></span>Ragi Flour</span>
+          <span class="mi"><span class="dot"></span>Bajra Flour</span>
+          <span class="mi"><span class="dot"></span>Stone Ground</span>
+          <span class="mi"><span class="dot"></span>No Preservatives</span>
+          <span class="mi"><span class="dot"></span>Heritage Process</span>
+        </div>
+      </div>
+
+      <!-- PROCESS -->
+      <section class="sect-process">
+        <div class="container">
+          <div class="process-grid">
+            <div class="pgallery">
+              <div>
+                <div class="pimg pimg-s" style="margin-bottom: 10px">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQzGpwBEIzTgR2Ut_zKpc2Guk9sulqaFLHoh6h-aGMF5Rw1DQR4o9iwt9FPrD9Nzy2slIyMpTWu-EhIEHXr4eRHQFhyQVvNqgym4tOBKePRvT-SCFOdYrhQ6QYoGWTcfC_nCXNWcg99NFnOBdQP0_s2RRFKxK9C9hPl0A0JAwF7zrzT3r-IXvA9TdyPbX-ItZw2x01o_lgI2Bmvog8XtHAhBsRDVBa_12oZMVdg4vCLIskhz8Kj86MNvN0jZxte5v_C0Ois3xHnRE"
+                    alt="Raw chickpeas" />
+                </div>
+                <div class="pimg pimg-t">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqdhRMjJg9N43nMy_JEhBZhcy838c_sACdAQY5oIxzktxnCzFYnHsP0GI1-CHlZghqzmR1ysMV1MEtx_-leA_tzq0vRQ4u8wp8aO7HKvYA4lWqcL718Z1kM2wl4UgT59FSq_ytH1_hlDl6rwtQBvZMn_kLTYRFVW9ufU5Zm6L9t1ln9pRb2KrQAOOK8kXv3fOthRnaSV1cR0dOjuNoW6TUa8ytBgBlCfSj5JxnVKDuTbHJFCGznIWt-lWDLz1pTyWky-zZMJLCW0Q"
+                    alt="Stone mill" />
+                </div>
+              </div>
+              <div class="pcol-offset">
+                <div class="pimg pimg-t" style="margin-bottom: 10px">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD2LDsKl3s1C6fOskYDrd5U-R9FCJbZ_ESyX7NSh6ixKJwsHEkWB4QRilargLmfvqlyopKygrXn9yFehMm68gw-9WVx1dKGFes1C46VvqJDd7jp4t36k-HIut3DU7MgRJHUGNPux9Mwo5wa7B5hB9ZM0ndtxFyhSnhyGVd_BebCepFQFpcIlfFZLdj97ETwIrdCB9dPHxgrEi6TqQI9Dpf6dxENVOB8rFlQzGyyA_IlMX-vCRqs6wUUsy46efmlW-22jPcRYv83D4"
+                    alt="Sun drying" />
+                </div>
+                <div class="pimg pimg-s">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzcQv2OBZ7LNv-2m4INJWOiadk5mKoRNkCbMb88vS4QPlOcOrDg33UxDHqegsP3V6sG4Chbmkc7Eb6FnfF3ZS1B0_DkZAbg_QA3TajJDLUL12Z_vZBTTTC8GgB9SolHWjnhtce8_pV0IRX2TgLOQc4G3tfBK9UrgqGzBLYWC6UaYjwwNhuTutS43Ww9iN3i1F4YCcWIle6V5y4eiLujfJoLjGT-7TJRAtG8AJvYywSo4QdZh3CeeieEUkG-ObARbvbD3MOR4gGcpQ"
+                    alt="Packaged flour" />
+                </div>
+              </div>
+            </div>
+
+            <div class="ptext">
+              <span class="eyebrow">Our Method</span>
+              <h2>Natural Process.<br /><span>Heritage Taste.</span></h2>
+              <p>
+                Unlike modern high-speed mills that heat and degrade nutrients,
+                we use slow-turning stones and sun-drying techniques. This
+                preserves the essential oils, natural aroma, and the living soul
+                of every grain.
+              </p>
+              <div class="steps">
+                <div class="step">
+                  <div class="step-ic gold-ic">
+                    <span class="material-symbols-outlined">sunny</span>
+                  </div>
+                  <div class="step-c">
+                    <h4>Sun-Roasted Grains</h4>
+                    <p>
+                      Naturally dried under open skies to achieve the ideal
+                      moisture and aroma before grinding begins.
+                    </p>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-ic grn-ic">
+                    <span class="material-symbols-outlined"
+                      >filter_vintage</span
+                    >
+                  </div>
+                  <div class="step-c">
+                    <h4>Cold Stone Grinding</h4>
+                    <p>
+                      Slow-turning granite mills maintain low temperature,
+                      keeping proteins and essential nutrients intact.
+                    </p>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-ic ter-ic">
+                    <span class="material-symbols-outlined">package</span>
+                  </div>
+                  <div class="step-c">
+                    <h4>Sealed Fresh Daily</h4>
+                    <p>
+                      Packed within hours of grinding to lock in freshness — no
+                      warehousing, no stale stock.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="sect-products">
+        <div class="container">
+          <div class="sect-hd">
+            <div class="sect-hd-l">
+              <span class="eyebrow">The Pantry</span>
+              <h2>Crafted for Quality</h2>
+              <p>
+                Bihar's finest harvests, processed without additives,
+                preservatives, or compromise.
+              </p>
+            </div>
+            <button class="btn-link">
+              View Entire Pantry
+              <span
+                class="material-symbols-outlined arr"
+                style="font-size: 18px"
+                >east</span
+              >
+            </button>
+          </div>
+
+          <div class="prod-grid">
+            <div class="prod-card">
+              <div class="prod-img-w">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr9gv__kImo1eatK3OTHtviPfospwpUxCu6SreEQq2k5iCbqNUDc1dFJ5CCWrf53m2TZMkUJi3reos5YlL6J6ap0ezL3Z0nPYs2TPkiitxWQcx3Q1AIUYLbZ1lwtw4g-7cPM7PrZCbVHBEmDoP2DOWu2DbCOqE6DHpr8R5DT8LWHZ5pnnaOusAicsVznZmer5Kpa8ajLUsMgpK49CZ7rBvUdAHXFvql5_g8RfVDCHILjQUwvb_Neyoq5aL9ReimnztDVEyjddVJ20"
+                  alt="Chana Sattu" />
+                <div class="prod-img-ov"></div>
+                <span class="prod-badge b-grn">Bestseller</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-meta">
+                  <span class="prod-name">Chana Sattu</span>
+                  {% comment %} <span class="prod-price">₹120</span> {% endcomment %}
+                </div>
+                <p class="prod-desc">
+                  Roasted Black Chickpea Flour — the high-protein superfood of
+                  the East. 500g.
+                </p>
+                <div class="prod-tags">
+                  <span class="prod-tag">High Protein</span>
+                  <span class="prod-tag">Gluten-Free</span>
+                  <span class="prod-tag">Stone Ground</span>
+                </div>
+                {% comment %} <button class="btn-bag">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 16px"
+                    >shopping_bag</span
+                  >
+                  Add to Bag
+                </button> {% endcomment %}
+              </div>
+            </div>
+
+            <div class="prod-card">
+              <div class="prod-img-w">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr5YaYp80CwjxYjpJ0yzIWWgCw-p79NiLzv-F2kcy8DE7zLL-bQ3JqUWjYJ9efQzVM4nuo3wcAWrn4fgBqbbrKsEiUd6gqR-i5VwWfWxAJKRoqW1qXyG-lErrSbRhee4YMnH-GDmOglQ5RwHUlx2naZE-Mg5gHSboL548MKnoRaAmaV2Sid5dBOqQfNeke1vtxNYKgBlz707EmCxpMAXesXGwfAe2E8ke7KPxYgnASUd0fqtAcXir4ZJ_cFD0_dxcAOrl6pXtKTig"
+                  alt="Pure Besan" />
+                <div class="prod-img-ov"></div>
+              </div>
+              <div class="prod-body">
+                <div class="prod-meta">
+                  <span class="prod-name">Pure Besan</span>
+                  {% comment %} <span class="prod-price">₹95</span> {% endcomment %}
+                </div>
+                <p class="prod-desc">
+                  Fine-ground gram flour. Perfectly textured for laddoos,
+                  pakoras and kadhi. 500g.
+                </p>
+                <div class="prod-tags">
+                  <span class="prod-tag">Fine Grade</span>
+                  <span class="prod-tag">No Additives</span>
+                </div>
+                {% comment %} <button class="btn-bag">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 16px"
+                    >shopping_bag</span
+                  >
+                  Add to Bag
+                </button> {% endcomment %}
+              </div>
+            </div>
+
+            <div class="prod-card">
+              <div class="prod-img-w">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3CvXjZ7cTkoS7rAmQyqaIgBJeNghjhe-nyRvi2e5QKsXs6oGuHOsO8LkvuPgm2PXY0ERVIJ6EcshtgPH1sFKr23ctYi8FTjL99453H4U9wYqCD7RgJq6LaaireRPmCl7_5C0f1ruOT1YAX8I1U8aTOXzF6G2eoDCBeFONibfRwHv32UJuQI1MnnUwVqk3Mvk3BJD-D92kymfuLW8kbA-lDh3HFlVf8E2YHBMQuIGqGJfZkH_kZZmnR5SvMmXCEwFjuxi0BBUbYrk"
+                  alt="Sharbati Atta" />
+                <div class="prod-img-ov"></div>
+                <span class="prod-badge b-terra">Heritage Grain</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-meta">
+                  <span class="prod-name">Sharbati Atta</span>
+                  {% comment %} <span class="prod-price">₹210</span> {% endcomment %}
+                </div>
+                <p class="prod-desc">
+                  Stone-ground whole wheat. Higher fibre, softer rotis, and a
+                  richer, nuttier taste. 1kg.
+                </p>
+                <div class="prod-tags">
+                  <span class="prod-tag">Whole Grain</span>
+                  <span class="prod-tag">High Fibre</span>
+                  <span class="prod-tag">Heritage Variety</span>
+                </div>
+                {% comment %} <button class="btn-bag">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 16px"
+                    >shopping_bag</span
+                  >
+                  Add to Bag
+                </button> {% endcomment %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="sect-stats">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-big">{% years_since 1978 %}+</span
+              ><span class="stat-lab">Years of Heritage</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-big">100+</span
+              ><span class="stat-lab">Trusted Clients & Companiess</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-big">0</span
+              ><span class="stat-lab">Additives or Preservatives</span>
+            </div>
+
+
+            
+    <div class="stat-item">
+              <span class="stat-big">10+</span
+              ><span class="stat-lab">Grain Varieties</span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- QUOTE -->
+      <section class="sect-quote">
+        <div class="container">
+          <span class="q-mark" aria-hidden="true">"</span>
+          <blockquote class="q-text">
+            Our philosophy is simple: we don't interfere with what nature has
+            already perfected. We only help bring it to your table.
+          </blockquote>
+          <p class="q-auth">— Satya Narayan Shaw, Founder · 1978</p>
+          <div class="q-orn">
+            <span
+              class="material-symbols-outlined"
+              style="
+                color: var(--primary-gold);
+                font-size: 18px;
+                font-variation-settings: &quot;FILL&quot; 1;
+              "
+              >spa</span
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    {% include "footer.html" %}
+  </body>
+</html>

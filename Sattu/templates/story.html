@@ -1,0 +1,304 @@
+<!-- story -->
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#e5e2dd",
+              "on-primary-fixed": "#261a00",
+              tertiary: "#755750",
+              "surface-container-high": "#ebe8e3",
+              "surface-tint": "#795900",
+              outline: "#82756a",
+              primary: "#795900",
+              "inverse-on-surface": "#f3f0eb",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e5e2dd",
+              background: "#fcf9f4",
+              "surface-container-low": "#f6f3ee",
+              "tertiary-container": "#c9a49c",
+              "on-primary-fixed-variant": "#5b4300",
+              surface: "#fcf9f4",
+              "on-tertiary-fixed": "#2b1611",
+              "primary-fixed": "#ffdf9e",
+              "on-primary-container": "#533d00",
+              "on-secondary-fixed-variant": "#3d4c20",
+              "primary-container": "#d5a634",
+              "on-secondary-fixed": "#131f00",
+              "inverse-primary": "#f1bf4c",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "inverse-surface": "#31302d",
+              "on-surface-variant": "#50453b",
+              "on-secondary": "#ffffff",
+              "on-background": "#1c1c19",
+              "on-tertiary-container": "#553a34",
+              "secondary-container": "#d4e7ad",
+              "secondary-fixed-dim": "#bbcd96",
+              secondary: "#546436",
+              "on-error-container": "#93000a",
+              "primary-fixed-dim": "#f1bf4c",
+              "outline-variant": "#d4c4b7",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0ede8",
+              "tertiary-fixed-dim": "#e5beb5",
+              "tertiary-fixed": "#ffdad2",
+              "on-secondary-container": "#58683a",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed-variant": "#5c403a",
+              "secondary-fixed": "#d7eab0",
+              "surface-bright": "#fcf9f4",
+              error: "#ba1a1a",
+              "on-surface": "#1c1c19",
+              "surface-dim": "#dcdad5",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Plus Jakarta Sans"],
+              label: ["Plus Jakarta Sans"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .editorial-underline {
+        position: relative;
+      }
+      .editorial-underline::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: #795900;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background font-body antialiased">
+    <!-- TopAppBar -->
+    {% include 'navbar.html' %}
+
+    <main class="pt-24 pb-32">
+      <!-- Hero Section -->
+      <section class="px-6 mb-16">
+        <div class="flex flex-col gap-2">
+          <span
+            class="font-label uppercase tracking-widest text-[10px] font-bold text-secondary"
+            >Our Origin Story</span
+          >
+          <h2
+            class="font-headline text-4xl font-bold leading-tight tracking-tight text-on-background">
+            The Art of <span class="text-primary italic">Slow Craft</span>
+          </h2>
+          <p class="text-on-surface-variant mt-4 leading-relaxed max-w-xs">
+            Tracing the journey from sun-drenched fields to the rhythmic hum of
+            stone mills.
+          </p>
+        </div>
+        <div
+          class="mt-8 relative h-64 w-full rounded-xl overflow-hidden shadow-xl">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+          <img
+            alt="Sun drenched grain fields"
+            class="absolute inset-0 w-full h-full object-cover"
+            data-alt="Golden sun drenched wheat fields during harvest"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJK70jRn4hYn6RH7LGSgICpjrgyAmQ6nH9QIJn_iV_1-XyZZwwOXGs868BATi5-FA7Qv4UnD5GLtjHKhAaTJIVesdhKHxQV9orKL4lw3FwtYRERi0Yc_FQ50HZcM-knNiY6rbHP7I_Wk6zBgXJolyI-i1NtzdELB7JNhH9f758240-gha3o7rIAg6Z1_l5zTfS1W9IOom2NeJrbjn_pstsrlC7pH8Yd_oxxBG59u1utJRzOsFeU340GFTpW60mFFff8vFJW5J7svM" />
+        </div>
+      </section>
+      <!-- Sourcing: The Foundation -->
+      <section class="mb-16">
+        <div class="px-6 mb-8 flex items-baseline justify-between">
+          <div>
+            <h3 class="font-headline text-2xl font-bold editorial-underline">
+              Sourcing
+            </h3>
+            <p
+              class="font-label text-[10px] uppercase tracking-wider text-outline mt-2">
+              Foundation of Purity
+            </p>
+          </div>
+          <span class="text-secondary font-headline italic text-4xl opacity-20"
+            >01</span
+          >
+        </div>
+        <div class="bg-surface-container-low py-10 px-6 space-y-8">
+          <div class="flex flex-col gap-6">
+            <div
+              class="w-full aspect-square rounded-xl overflow-hidden bg-surface-variant">
+              <img
+                alt="Premium Chickpeas"
+                class="w-full h-full object-cover"
+                data-alt="Close up of raw high quality yellow chickpeas"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqPg5-4jflKD0XND6FvIx_VtTRl5R56IVH1FBKUuz8n98na8vtDRbk-FArjukTUIpGY7UsXzhkBI2naEmwRZr0S83LCJhyrS7fuPJ_vVS7nKPhwkCl2qewOmXvUq8iWJibuSUfEQs3J3VMzaM9xy7yMqcpKT-1DHUITkga-bZclPMlRzIORPdlcqq1vtnOQxSVp-HVyboiJ1-AZJHfAUN1XhxtdTsHVuYS27SONZn0z44L37k7jHFLQQryhQuso6GKcV4tVSQHLdc" />
+            </div>
+            <div class="space-y-3">
+              <div class="flex gap-2">
+                <span
+                  class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase"
+                  >Verified Origin</span
+                >
+              </div>
+              <p class="text-on-surface leading-relaxed">
+                We partner directly with farmers in the heartland of India,
+                selecting only the finest, non-GMO chickpeas and wheat grains
+                that have matured naturally under the harvest sun.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Traditional Roasting -->
+      <section class="mb-16 overflow-hidden">
+        <div class="px-6 mb-8 flex items-baseline justify-between">
+          <div>
+            <h3 class="font-headline text-2xl font-bold editorial-underline">
+              Roasting
+            </h3>
+            <p
+              class="font-label text-[10px] uppercase tracking-wider text-outline mt-2">
+              The Fire &amp; Sand Method
+            </p>
+          </div>
+          <span class="text-secondary font-headline italic text-4xl opacity-20"
+            >02</span
+          >
+        </div>
+        <div class="relative px-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <div class="h-48 rounded-xl overflow-hidden shadow-md">
+                <img
+                  alt="Traditional roasting process"
+                  class="w-full h-full object-cover"
+                  data-alt="Traditional wood fire cooking or roasting process"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOKaXUXNtSFGTDi6IgYB4yosQpmzPa_IL9QzUEiFoa6fC-JxR-mHUmCXAMRIRvhNwCGVhqxhflYT6AXA9-tTnsPGtFisxapppabU00OWBa5Ggcro-Fz_W7rSSe8KRqlpQuEtDME7lMINnJM14Xeri9fJ0jEzfHmXyUv0W2dzlhLWBg1H5riB93ezIrdcNJx5dZrLQMWV9C0s4X91R8TWt1waUJ9FeigDUY9y073Cpw06GDAbT8A7WNNqHfxHmx1IxDgRkdiGRhZhY" />
+              </div>
+              <div class="p-4 bg-primary text-on-primary rounded-xl">
+                <h4 class="font-headline text-lg italic">Nutrient Lock</h4>
+                <p class="text-xs opacity-90 mt-2">
+                  Flash roasting in hot sand preserves natural enzymes and adds
+                  a smoky depth.
+                </p>
+              </div>
+            </div>
+            <div class="pt-12 space-y-4">
+              <div class="h-64 rounded-xl overflow-hidden shadow-md">
+                <img
+                  alt="Golden roasted grains"
+                  class="w-full h-full object-cover"
+                  data-alt="Golden brown roasted grains on a tray"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD36FHvxNWw-9UDzepKO1O6KmLATGWdf3HyzQGUJkuOGSIMmmyHE4IuSkwaOeoI3vEuCTEHMyrWcDzzj438NLUnzHkttP4haLpf1B0LoTsOFlWaBCI-9YhaRKRtKebTpv8_g11pKARB9mJ8LeV3wPe2HTHC0joDeCte2FfVD3CKsqA-oV7_MsTshhO5A8QZo_eMJL1LdHmVRiaO23EWnX0TrxQ5CerOxsUeOXwpTUGe1nTgd48OYuSn4Vst9I6rfyxs2tYPma3RemI" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Stone Grinding: The Signature -->
+      <section class="mb-16">
+        <div class="px-6 mb-8 flex items-baseline justify-between">
+          <div>
+            <h3 class="font-headline text-2xl font-bold editorial-underline">
+              Stone Milling
+            </h3>
+            <p
+              class="font-label text-[10px] uppercase tracking-wider text-outline mt-2">
+              Tactile Precision
+            </p>
+          </div>
+          <span class="text-secondary font-headline italic text-4xl opacity-20"
+            >03</span
+          >
+        </div>
+        <div
+          class="mx-6 p-8 bg-surface-container-highest rounded-2xl border border-outline-variant/15 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-4 opacity-10">
+            <span
+              class="material-symbols-outlined text-8xl"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >grass</span
+            >
+          </div>
+          <div class="relative z-10 space-y-6">
+            <h4 class="font-headline text-xl text-primary font-bold">
+              Cold-Pressed Texture
+            </h4>
+            <p class="text-on-surface-variant leading-relaxed">
+              Unlike high-speed industrial grinders that burn the flour, our
+              traditional stone mills (Chakki) rotate at low speeds. This
+              prevents heat buildup, keeping the
+              <span class="font-bold text-on-background"
+                >fiber, vitamins, and minerals</span
+              >
+              intact.
+            </p>
+            <div
+              class="flex items-center gap-4 text-secondary font-bold text-xs uppercase tracking-widest">
+              <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+              Authentic Sattu Flour
+              <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Final Sifting -->
+      <section class="mb-24 px-6">
+        <div
+          class="bg-gradient-to-br from-primary to-primary-container p-1 rounded-2xl">
+          <div
+            class="bg-background rounded-[calc(1rem-2px)] p-6 flex flex-col items-center text-center gap-4">
+            <span class="material-symbols-outlined text-primary text-4xl"
+              >verified</span
+            >
+            <h3 class="font-headline text-2xl font-bold text-on-background">
+              Hand-Sifted Quality
+            </h3>
+            <p class="text-on-surface-variant text-sm">
+              Every batch of Besan, Atta, and Sattu is hand-sifted for an
+              ethereal texture that industrial processes simply can't replicate.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      {% include 'Footer.html' %}
+    </main>
+  </body>
+</html>
