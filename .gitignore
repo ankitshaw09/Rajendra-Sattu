@@ -1,0 +1,6 @@
+# Ignore the environment variables file
+.env
+
+# Ignore specific secret files if you have them
+secrets.py
+instance/
