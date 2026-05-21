@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -362,7 +363,7 @@
       .catch(error => console.error('Error loading footer:', error));
 
     // 2. Load Navbar dynamically and attach logic AFTER it loads
-    fetch('navbar.html')
+    fetch('Navbar.html')
       .then(response => response.text())
       .then(data => {
         // Inject the HTML
