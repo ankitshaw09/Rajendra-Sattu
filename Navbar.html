@@ -1,24 +1,76 @@
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#fcf9f4]/80 backdrop-blur-xl border-b border-[#d4c4b7]/15">
-  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<!-- navbar.html -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf9f4]/90 backdrop-blur-xl border-b border-[#d4c4b7]/15">
+  <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto">
     <div class="text-2xl font-serif font-bold text-[#795900]">
-      Rajendra Sattu
+      <a href="index.html">Rajendra Sattu</a>
     </div>
+
+    <!-- Desktop Menu -->
     <div class="hidden md:flex items-center space-x-8 font-serif text-lg tracking-tight">
-      <a class="nav-link transition-colors duration-300" href="index.html">Home</a>
-      <a class="nav-link transition-colors duration-300" href="product.html">Products</a>
-      <a class="nav-link transition-colors duration-300" href="ourProcess.html">Our Process</a>
-      <a class="nav-link transition-colors duration-300" href="story.html">Our Story</a>
-      <a class="nav-link transition-colors duration-300" href="contact.html">Contact</a>
+      <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+        href="index.html">Home</a>
+      <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+        href="product.html">Products</a>
+      <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+        href="ourProcess.html">Our Process</a>
+      <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+        href="story.html">Our Story</a>
+      <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+        href="contact.html">Contact</a>
     </div>
-    <!-- <div class="flex items-center space-x-6">
-      <button class="material-symbols-outlined text-on-surface-variant">
-        search
+
+    <!-- Mobile Menu Toggle Button -->
+    <div class="md:hidden flex items-center">
+      <button id="mobile-menu-toggle" class="material-symbols-outlined text-3xl text-[#795900] focus:outline-none">
+        menu
       </button>
-      <button
-        class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold hero-gradient active:scale-95 transition-all duration-200">
-        Shop Now
-      </button>
-    </div> -->
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu"
+    class="hidden md:hidden bg-[#fcf9f4] border-t border-[#d4c4b7]/15 flex-col items-center space-y-6 py-6 font-serif text-lg shadow-lg">
+    <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+      href="index.html">Home</a>
+    <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+      href="product.html">Products</a>
+    <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+      href="ourProcess.html">Our Process</a>
+    <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+      href="story.html">Our Story</a>
+    <a class="nav-link text-[#50453b] hover:text-[#795900] transition-colors duration-300 pb-1 border-b-2 border-transparent"
+      href="contact.html">Contact</a>
   </div>
 </nav>
+
+<!-- Navbar Logic -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. Handle Mobile Menu Toggle
+    const menuToggleBtn = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+      // Change icon from 'menu' to 'close' based on state
+      menuToggleBtn.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+    });
+
+    // 2. Automatically Highlight the Active Page Link
+    // Get the current filename (e.g., "product.html"). If empty (like "www.site.com/"), default to "index.html"
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      // If the link's href matches the current URL path
+      if (href === currentPath) {
+        // Remove inactive styles
+        link.classList.remove('text-[#50453b]', 'hover:text-[#795900]', 'border-transparent');
+        // Add active state styles
+        link.classList.add('text-[#795900]', 'font-bold', 'border-[#795900]');
+      }
+    });
+  });
+</script>
